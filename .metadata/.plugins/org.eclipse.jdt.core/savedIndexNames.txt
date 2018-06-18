@@ -1,2 +1,0 @@
-INDEX VERSION 1.130+C:\Dev\spring4fs\.metadata\.plugins\org.eclipse.jdt.core
-3167475879.index
