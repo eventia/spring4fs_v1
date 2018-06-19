@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MemberRegisterService {
 	private MemberDao memberDao;
 
-	@Autowired
+	//@Autowired
+	@Autowired(required=false)  // Main4.java 작동 
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}

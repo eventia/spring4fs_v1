@@ -10,10 +10,10 @@
 
 	<mvc:view-controller path="/main" view-name="main"/>
 	
-	<bean class="controller.RegisterController">
+	<bean class="com.wind.sp4chap11.controller.RegisterController">
 		<property name="memberRegisterService" ref="memberRegSvc" />
 	</bean>
 
-	<bean class="survey.SurveyController">
+	<bean class="com.wind.sp4chap11.survey.SurveyController">
 	</bean>
 </beans>

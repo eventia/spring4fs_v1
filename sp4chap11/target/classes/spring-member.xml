@@ -23,15 +23,15 @@
 		<property name="dataSource" ref="dataSource" /> 
 	</bean>
 	
-	<bean id="memberDao" class="spring.MemberDao">
+	<bean id="memberDao" class="com.wind.sp4chap11.spring.MemberDao">
 		<constructor-arg ref="dataSource" />
 	</bean>
 	
- 	<bean id="memberRegSvc" class="spring.MemberRegisterService">
+ 	<bean id="memberRegSvc" class="com.wind.sp4chap11.spring.MemberRegisterService">
 		<constructor-arg ref="memberDao" />
 	</bean>
 
-	<bean id="changePwdSvc" class="spring.ChangePasswordService">
+	<bean id="changePwdSvc" class="com.wind.sp4chap11.spring.ChangePasswordService">
 		<constructor-arg ref="memberDao" />
 	</bean>
 

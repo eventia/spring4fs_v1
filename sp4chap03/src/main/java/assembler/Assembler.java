@@ -20,12 +20,24 @@ public class Assembler {
 		return memberDao;
 	}
 
-	public MemberRegisterService getMemberRegisterService() {
+	public MemberRegisterService getRegSvc() {
 		return regSvc;
 	}
 
-	public ChangePasswordService getChangePasswordService() {
+	public ChangePasswordService getPwdSvc() {
 		return pwdSvc;
 	}
+
+//	public MemberDao getMemberDao() {
+//		return memberDao;
+//	}
+//
+//	public MemberRegisterService getMemberRegisterService() {
+//		return regSvc;
+//	}
+//
+//	public ChangePasswordService getChangePasswordService() {
+//		return pwdSvc;
+//	}
 
 }

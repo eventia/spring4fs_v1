@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class MemberInfoPrinter {
 
-	@Autowired
+	//@Autowired
+	@Autowired(required=false)
 	private MemberDao memDao;
 	private MemberPrinter printer;
 
@@ -17,6 +18,7 @@ public class MemberInfoPrinter {
 
 	@Autowired
 	//@Qualifier("sysout")
+	//@Qualifier("sysout")  // Main3.java 작동 
 	public void setPrinter(MemberPrinter printer) {
 		System.out.println("setPrinter: " + printer);
 		this.printer = printer;
