@@ -1,4 +1,6 @@
+/Servers
 /.metadata
+/.gradle
 /RemoteSystemsTempFiles
 /.recommenders
 *.class
