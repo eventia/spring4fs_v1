@@ -14,9 +14,9 @@ echo [PROCESSING...] git add --all .
 git add --all .
 if [%1] EQU [] (
 echo.
-echo [PROCESSING...] git commit -m "Spring Tutorial %date%" 
+echo [PROCESSING...] git commit -m "[Basic] Spring Tutorial %date%" 
 echo.
-git commit -m "Spring Tutorial %date%"
+git commit -m "[Basic] Spring Tutorial %date%"
 ) else (
 echo.
 echo [PROCESSING...] git commit -m %1 
