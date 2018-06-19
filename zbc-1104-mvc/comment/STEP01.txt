@@ -18,4 +18,7 @@ web.xml 수정 : servlet-context.xml 외 추가 xml설정파일 삽입 가능
 [zbc-1103-mvc]
 모든 파일을 끌어들여와 실행가능, 정돈 필요
 
-
+[zbc-1104-mvc] 파일정리 시작
+spring-context.xml, spring-member.xml,spring-mvc.xml 파일을 (src/main/resources) 이동 & web.xml 수정
+	/WEB-INF/spring/appServlet/servlet-context.xml 와 classpath:spring-mvc.xml 사용 
+   

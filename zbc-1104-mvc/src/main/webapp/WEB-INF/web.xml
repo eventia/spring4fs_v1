@@ -15,10 +15,16 @@
       <param-value>
       	
 		/WEB-INF/spring/appServlet/servlet-context.xml		 
-		/WEB-INF/spring/appServlet/spring-mvc.xml
-		/WEB-INF/spring/appServlet/spring-controller.xml
-		/WEB-INF/spring/appServlet/spring-member.xml
-      
+
+      		 	classpath:spring-mvc.xml 
+    		  	classpath:spring-controller.xml
+	      		classpath:spring-member.xml
+
+		<!-- 
+      		/WEB-INF/spring/appServlet/spring-mvc.xml
+			/WEB-INF/spring/appServlet/spring-controller.xml
+			/WEB-INF/spring/appServlet/spring-member.xml
+       	-->
       </param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
