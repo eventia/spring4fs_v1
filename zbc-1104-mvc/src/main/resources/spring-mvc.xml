@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+<!-- 
 	<mvc:annotation-driven />
 
 	<mvc:default-servlet-handler />
@@ -15,5 +16,7 @@
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/view/" />
 	</mvc:view-resolvers>
-
+ -->
+ 
+ 
 </beans>

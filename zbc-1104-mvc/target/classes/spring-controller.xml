@@ -12,6 +12,9 @@
 	
 	<bean class="com.wind.sp4chap11.controller.RegisterController">
 		<property name="memberRegisterService" ref="memberRegSvc" />
+<!-- 
+		<property name="memberRegisterService" ref="memberRegSvc" />		
+ -->
 	</bean>
 
 	<bean class="com.wind.sp4chap11.survey.SurveyController">
