@@ -14,7 +14,10 @@ public class BDto {
 	int bStep;
 	int bIndent;
 	
-	public BDto() {	}
+	public BDto() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public BDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate, 
 			int bHit, int bGroup, int bStep, int bIndent) {
 		
@@ -29,11 +32,6 @@ public class BDto {
 		this.bIndent   = bIndent  ;   
 	}
 
-	public String toString() {
-		return 	"BDto [bId=" + bId + 
-				", bName=" + bName + 
-				", bTitle=" + bTitle + "]";
-	}
 	public int getbId() {
 		return bId;
 	}

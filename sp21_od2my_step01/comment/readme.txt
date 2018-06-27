@@ -1,7 +1,3 @@
-[sp21-mysql-01] mySql, MyBatis 사용예제
-http://min-it.tistory.com/8?category=751930
-현재 list 까지 작동 확인
-
 [sp21-oracle-02 : contentView() 변경] JDBC 를 이용한 코드축약 
 1. contentView() 수정
 	upHit(strID);
