@@ -1,3 +1,7 @@
+[sp21-od2my-01]
+1. pom.xml 수정 (+mybatis)
+2. servlet-context.xml 수정 (mysql 접속정보 등록)
+
 [sp21-oracle-02 : contentView() 변경] JDBC 를 이용한 코드축약 
 1. contentView() 수정
 	upHit(strID);
