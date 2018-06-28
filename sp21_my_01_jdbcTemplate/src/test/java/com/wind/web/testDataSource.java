@@ -23,11 +23,11 @@ public class testDataSource {
 	public void testDS() throws Exception{
 		
 		try(Connection con = ds.getConnection()) {
-			System.out.println("dataSource 설정성공");
+			System.out.println("dataSource connection ... success...");
 			System.out.println(con);
 			
 		} catch (Exception e) {
-			System.out.println("실패");
+			System.out.println("connection ... fail...");
 			fail("Not yet implemented");
 		} 
 		

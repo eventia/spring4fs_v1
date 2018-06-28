@@ -14,6 +14,7 @@ public class BDao {
 	
 	public BDao() {
 		this.template = Constant.template;
+		//System.out.println("\n\ntemplate = "+this.template);
 	}
 
 	public ArrayList<BDto> list() {
