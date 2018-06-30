@@ -67,7 +67,8 @@ public class TicketDao {
 					@Override
 					public PreparedStatement createPreparedStatement(Connection con)
 							throws SQLException {
-						String query = "insert into ticket (consumerId, countnum) values (?, ?)";
+						String query = "insert into card (consumerId, amount) values (?, ?)";
+//						String query = "insert into ticket (consumerId, countnum) values (?, ?)";
 						PreparedStatement pstmt = con.prepareStatement(query);
 						pstmt.setString(1, dto.getConsumerId());
 						pstmt.setString(2, dto.getAmount());
