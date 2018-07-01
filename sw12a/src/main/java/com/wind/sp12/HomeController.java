@@ -39,6 +39,7 @@ public class HomeController {
 	
 	@RequestMapping("/board/view")
 	public String view(Model model) {
+		model.addAttribute("id", 20);
 		System.out.println(model);
 		return "board/view";
 	}

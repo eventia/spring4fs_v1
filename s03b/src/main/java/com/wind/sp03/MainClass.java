@@ -23,8 +23,8 @@ public class MainClass {
 		myCalculator.mul();
 		myCalculator.div();
 		
-		System.out.println("configLocation = " + configLocation);
-		System.out.println("ctx = " + ctx);
+//		System.out.println("configLocation = " + configLocation);
+//		System.out.println("ctx = " + ctx);
 
 	}
 	

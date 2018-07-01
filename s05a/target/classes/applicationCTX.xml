@@ -5,13 +5,13 @@
 
 	<bean id="student1" class="com.wind.sp05.Student">
 		<constructor-arg>
-			<value>홍길동</value>
+			<value>토드 엔더슨</value>
 		</constructor-arg>
 		<constructor-arg>
-			<value>10살</value>
+			<value>15살</value>
 		</constructor-arg>
 		<constructor-arg>
-			<value>3학년</value>
+			<value>1학년</value>
 		</constructor-arg>
 		<constructor-arg>
 			<value>20번</value>
@@ -19,9 +19,9 @@
 	</bean>
 	
 	<bean id="student2" class="com.wind.sp05.Student">
-		<constructor-arg value="홍길동" />
-		<constructor-arg value="9살" />
-		<constructor-arg value="2학년" />
+		<constructor-arg value="닐 페리" />
+		<constructor-arg value="15살" />
+		<constructor-arg value="1학년" />
 		<constructor-arg value="10번" />
 	</bean>
 	

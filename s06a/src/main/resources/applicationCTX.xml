@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="student1" class="com.wind.sp06.Student">
-		<constructor-arg value="홍길동"></constructor-arg>
+		<constructor-arg value="오드리 햅번"></constructor-arg>
 		<constructor-arg value="10"></constructor-arg>
 		<constructor-arg>
 			<list>

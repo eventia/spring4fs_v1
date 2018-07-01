@@ -4,7 +4,6 @@ public class Family {
 	
 	String papaName;
 	String mamiName;
-	String sisterName;
 	String brotherName;
 	
 	public Family(String papaName, String mamiName) {
@@ -27,14 +26,6 @@ public class Family {
 
 	public void setMamiName(String mamiName) {
 		this.mamiName = mamiName;
-	}
-
-	public String getSisterName() {
-		return sisterName;
-	}
-
-	public void setSisterName(String sisterName) {
-		this.sisterName = sisterName;
 	}
 
 	public String getBrotherName() {

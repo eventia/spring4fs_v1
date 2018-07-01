@@ -26,15 +26,15 @@
 	<bean id="myInfo" class="com.wind.sp04.MyInfo">
 
 		<property name="name">
-			<value>홍길순</value>
+			<value>원빈</value>
 		</property>	
 	
 		<property name="height">
-			<value>187</value>
+			<value>178</value>
 		</property>	
 	
 		<property name="weight">
-			<value>84</value>
+			<value>65</value>
 		</property>	
 	
 		<property name="hobbies">

@@ -15,7 +15,7 @@ public class ApplicationConfig {
 		hobbies.add("수영");
 		hobbies.add("요리");
 		
-		Student student = new Student("홍길동", 20, hobbies);
+		Student student = new Student("오드리 햅번", 25, hobbies);
 		student.setHeight(180);
 		student.setWeight(80);
 		
@@ -29,7 +29,7 @@ public class ApplicationConfig {
 		hobbies.add("독서"); 
 		hobbies.add("보드"); 
 		
-		Student student = new Student("코난",  18, hobbies);
+		Student student = new Student("그레고리 펙",  28, hobbies);
 		student.setHeight(150);
 		student.setWeight(45);
 		

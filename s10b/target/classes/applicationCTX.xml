@@ -9,16 +9,16 @@
 	<bean id="logAop" class="com.wind.sp10.LogAop" />
 
 	<bean id="student" class="com.wind.sp10.Student" >
-		<property name="name" value="홍길동" />
-		<property name="age" value="10" />
+		<property name="name" value="코난" />
+		<property name="age" value="15" />
 		<property name="gradeNum" value="3" />
 		<property name="classNum" value="5" />
 	</bean>
 	
 	<bean id="worker" class="com.wind.sp10.Worker" >
-		<property name="name" value="홍길순" />
+		<property name="name" value="셜록" />
 		<property name="age" value="35" />
-		<property name="job" value="개발자" />
+		<property name="job" value="탐정" />
 	</bean>
 	
 </beans>
