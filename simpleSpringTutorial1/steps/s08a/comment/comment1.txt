@@ -1,0 +1,6 @@
+1. 프로퍼티 적용 
+2. 초기화
+3. 종료
+
+public class Abc implements EnvironmentAware, InitializingBean, DisposableBean {
+...
