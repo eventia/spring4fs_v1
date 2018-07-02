@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.javalec.spring_mybatis" />
+	<context:component-scan base-package="com.wind.web_mybatis" />
 	
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
@@ -34,7 +34,7 @@
 		<beans:property name="dataSource" ref="dataSource"/>
 	</beans:bean>
 	
-	<beans:bean name="dao" class="com.javalec.spring_mybatis.dao.ContentDao">
+	<beans:bean name="dao" class="com.wind.web_mybatis.dao.ContentDao">
 		<beans:property name="template" ref="template"></beans:property>
 	</beans:bean>
 	
