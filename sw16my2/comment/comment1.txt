@@ -1,0 +1,299 @@
+[sp16a-mySql]
+
+server 의 context.xml 에 설정
+
+     <Resource auth="Container"
+    driverClassName = "oracle.jdbc.driver.OracleDriver"
+    maxActive="50"
+    maxWait="1000"
+    name="jdbc/Oracle11g"
+    username="scott"
+    password="tiger"
+    type="javax.sql.DataSource"
+    url="jdbc:oracle:thin:@localhost:1521:xe"
+  />
+
+
+  <!-- JSP : MySQL DB  사용을 위한 서버 설정        -->
+    <Resource 
+        name="jdbc/WorklightDS"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxActive="100"
+            maxIdle="30"
+            maxWait="10000"
+            username="scott"
+            password="tiger"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/scott_db?serverTimezone=UTC&amp;characterEncoding=utf8"
+      />
+      
+
+mySql 설정
+1. 톰캣서버에 설정
+2. scott_db/scott/tiger
+3. LAST_INSERT_ID()+1 로 auto_increment 인 bId 값을 가져와 사용
+
+
+[MySQL명령]
+
+
+DROP TABLE IF EXISTS `scott_db.mvc_board`;
+CREATE table `scott_db.mvc_board`(
+    BID INT(4) auto_increment ,
+    BNAME VARCHAR(20),
+    BTITLE VARCHAR(100),
+    BCONTENT VARCHAR(300),
+    BDATE DATETIME DEFAULT NOW(),
+    BHIT INT(4) DEFAULT 0,
+    BGROUP INT(4),
+    BSTEP INT(4),
+    BINDENT INT(4),
+	PRIMARY KEY (`BID`)
+) ENGINE=innodb DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `mvc_board` (`BNAME`,`BTITLE`, `BCONTENT`, `BHIT`,`BGROUP`, `BSTEP`, `BINDENT`)
+  VALUES ('오프라 윈프리', '가장 큰 모험', '여러분이 할 수 있는 가장 큰 모험은 바로 여러분이 꿈꾸는 삶을 사는 것입니다.', 0, LAST_INSERT_ID()+1, 0, 0);
+
+INSERT INTO `mvc_board` (`BNAME`,`BTITLE`, `BCONTENT`, `BHIT`,`BGROUP`, `BSTEP`, `BINDENT`)
+  VALUES ('랄프 왈도 에머슨', '도토리', '수천개의 숲도 한개의 도토리 열매에서 만들어진다.', 0, LAST_INSERT_ID()+1, 0, 0);
+
+INSERT INTO `mvc_board` (`BNAME`,`BTITLE`, `BCONTENT`, `BHIT`,`BGROUP`, `BSTEP`, `BINDENT`)
+  VALUES ('마이클 J. 폭스', '가족', '가족은 중요한게 아니라 모든 것입니다.', 0, LAST_INSERT_ID()+1, 0, 0);
+
+
+
+
+[sp16-oracle-01]
+[오라클 DB 설정]
+1. oracle 11g express db 설치
+2. Oracle SQL Developer 설치
+3. SQL 설정(사용자생성, 테이블생성)
+4. 오라클용 jdbc 파일 복사 "C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6_g.jar" 을 "C:\Program Files\Java\jre1.8.0_172\lib\ext" 디렉토리로 복사
+5. 서버설정수정
+
+
+[DOS & SQL명령]
+MSDOS> sqlplus system/oracle
+SQL> create user scott identified by tiger; 
+SQL> grant connect, resource to scott;
+SQL> exit
+MSDOS>> sqlplus scott/tiger
+SQL> CREATE SEQUENCE mvc_board_seq;
+
+DROP TABLE mvc_board;
+CREATE table mvc_board(
+    bId NUMBER(4) PRIMARY KEY,
+    bName VARCHAR2(20),
+    bTitle VARCHAR2(100),
+    bContent VARCHAR2(300),
+    bDate DATE DEFAULT SYSDATE,
+    bHit NUMBER(4) DEFAULT 0,
+    bGroup NUMBER(4),
+    bStep NUMBER(4),
+    bIndent NUMBER(4)
+    );
+    
+DROP SEQUENCE mvc_board_seq;
+CREATE SEQUENCE mvc_board_seq;
+
+INSERT INTO mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) 
+    values (mvc_board_seq.nextval, 'abcd', 'is title', 'is content', 0, mvc_board_seq.currval, 0, 0);
+INSERT INTO mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) 
+    values (mvc_board_seq.nextval, 'joy', 'Happy man', '그는 항상 행복합니다.', 0, mvc_board_seq.currval, 0, 0);
+
+
+[server 설정]
+1. Tomcat 7.0 의 context.xml 설정
+
+<Resource auth="Container"
+	driverClassName = "oracle.jdbc.driver.OracleDriver"
+	maxActive="50"
+	maxWait="1000"
+	name="jdbc/Oracle11g"
+	username="scott"
+	password="tiger"
+	type="javax.sql.DataSource"
+	url="jdbc:oracle:thin:@localhost:1521:xe"
+/>
+	
+	
+	
+
+[sp15b-web]
+ValidationUtils 사용 but 효용성 적음
+ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "trouble");
+
+
+[sp15a-web]
+유효성검사 : 
+	@RequestMapping("/create")
+	public String studentCreate(@ModelAttribute("student") Student student, BindingResult result) {
+		
+		String page = "createDonePage";
+		
+		StudentValidator validator = new StudentValidator();
+		validator.validate(student, result);
+		if(result.hasErrors()) {
+			page = "createPage";
+		}
+		
+		return page;
+	}
+
+
+[sp14c-web]
+1. 리다이렉트(redirect)
+
+	if(id.equals("abc")) {
+		return "redirect:studentOk";
+	}
+	return "redirect:studentNg";
+		
+
+[sp14b-web]
+1. @ModelAttribute 어노테이션
+
+	@RequestMapping("/경로")
+	메소드(@ModelAttribute("축약어") 클래스명 객체명){...
+
+	@RequestMapping("/studentView")
+	public String studentView(@ModelAttribute("studentInfo") StudentInformation studentInformation){
+	
+	
+[sp14a-web]
+1. GET/PUT 방식 동시 사용
+A-1. method 를 지운다.
+	@RequestMapping("/")
+A-2. GET, POST 모두 선언
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value="/경로" )
+A-3. 하나는 Model 로 다른 하나는 ModelAndView 로 생성
+A-4. 이름이 다른 메소드에 경로는 동일하게
+
+
+[sp13b-web]
+1. @PathVariable 어노테이션
+@RequestMapping("/student/{studentId}")
+public String getStudent(@PathVariable String studentId, Model model) {
+
+
+
+[sp13a-web]
+HttpServletRequest 사용, PUT/GET 메소드 
+
+	@RequestMapping("경로")
+	메소드(HttpServletRequest httpServletRequest, Model model) {
+		String id = httpServletRequest.getParameter("id");
+		model.addAttribute("id", id);
+		return "경로";
+	}
+
+
+@RequestParam("id") String id
+
+//	@RequestMapping("/member/join")
+//	public String joinData(@RequestParam("name") String name, @RequestParam("id") String id, 
+//			@RequestParam("pw") String pw, @RequestParam("email") String email, Model model) {
+대신
+	@RequestMapping("/member/join")
+	public String joinData(Member member) {
+
+
+[sp12bweb]
+기본 : http://localhost:8080/sp12/
+기본 => 			home.jsp
+기본+write =>	board/write.jsp
+기본+board/info =>board/info.jsp
+
+@RequestMapping("/board")
+@Controller
+클래스1 {
+	@RequestMapping("")
+	메소드1() { ...
+	return "board/루트";}
+
+	@RequestMapping("/")
+	메소드2() { ...
+	return "board/루트";}
+
+	@RequestMapping("/info")
+	메소드3() { ...
+	return "board/info";}
+}
+
+[sp12aweb]
+1. Controller 클래스 작성
+
+	@Controller
+	클래스이름 {
+	@RequestMapping("/경로")
+	public 메소드이름(Model model) {
+			model.addAttribute("아이디", 값);
+			return "경로";
+		}
+
+	@Controller
+	클래스이름 {
+	@RequestMapping("/경로")
+	public ModelAndView 메소드이름() {
+		ModelAndView 모델뷰객체 = new ModelAndView();
+		모델뷰객체.addObject("아이디", 값);
+		모델뷰객체.setViewName("경로");
+		return 모델뷰객체;
+		}
+
+	@Controller
+	public class HomeController {
+		@RequestMapping("/board/content")
+		public String content(Model model) {
+			model.addAttribute("id", 30);
+			return "board/content";
+		}
+
+	@RequestMapping("/board/reply")
+	public ModelAndView reply() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("id", 10);
+		mv.setViewName("board/reply");
+		return mv;
+		}
+
+[sp11bweb]
+1. servlet-context.xml : 
+	<resources mapping="/img_resources/**" location="/img_resources/" />
+	
+
+
+[sp11aweb]
+MVC Model
+
+1. web.xml : 한글 utf-8
+	<!-- 한글처리를 위한 필터 UTF-8  -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter     
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>   
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>  
+			<param-value>true</param-value>
+		</init-param>
+	</filter>    
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>                 
+	</filter-mapping> 
+
+
+2. servlet-context.xml : 
+	<resources mapping="/resources/**" location="/resources/" />
+	/resources/**
+	
+
+
