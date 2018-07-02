@@ -1,0 +1,27 @@
+    <!-- JSP : Oracle DB  사용을 위한 서버 설정        -->
+    <Resource 
+      name="jdbc/Oracle11g"
+      auth="Container"
+      driverClassName = "oracle.jdbc.driver.OracleDriver"
+      maxActive="50"
+      maxWait="1000"
+      username="scott"
+      password="tiger"
+      type="javax.sql.DataSource"
+      url="jdbc:oracle:thin:@localhost:1521:xe"
+    />
+
+ 
+    <!-- JSP : MySQL DB  사용을 위한 서버 설정        -->
+    <Resource 
+      name="jdbc/WorklightDS"
+      auth="Container"
+      driverClassName="com.mysql.jdbc.Driver"
+      maxActive="100"
+      maxWait="10000"
+      username="scott"
+      password="tiger"
+      type="javax.sql.DataSource"
+      maxIdle="30"
+      url="jdbc:mysql://localhost:3306/scott_db?serverTimezone=UTC&amp;characterEncoding=utf8"
+    />

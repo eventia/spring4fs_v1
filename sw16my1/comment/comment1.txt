@@ -13,7 +13,7 @@ server 의 context.xml 에 설정
     url="jdbc:oracle:thin:@localhost:1521:xe"
   />
 
- 
+
   <!-- JSP : MySQL DB  사용을 위한 서버 설정        -->
     <Resource 
         name="jdbc/WorklightDS"
