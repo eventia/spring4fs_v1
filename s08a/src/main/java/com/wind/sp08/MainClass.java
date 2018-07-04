@@ -15,21 +15,19 @@ public class MainClass {
 		ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
 		ConfigurableEnvironment env = ctx.getEnvironment();
 		
-		
-//		MutablePropertySources propertySources = env.getPropertySources();
 		MutablePropertySources propertySources = env.getPropertySources();
 		
 		try {
 			propertySources.addLast(new ResourcePropertySource("classpath:admin.properties"));
-//			env.getPropertySources().addLast(new ResourcePropertySource("classpath:admin.properties"));
 			
 			System.out.println( env.getProperty("admin.id") );
 			System.out.println( env.getProperty("admin.pw") );
 		} catch (IOException e) {}
 		
 		GenericXmlApplicationContext gCtx = (GenericXmlApplicationContext)ctx;
+		
 		gCtx.load("applicationCTX.xml");
-		gCtx.refresh();
+		gCtx.refresh(); // Bean 객체 생성
 		
 		AdminConnection adminConnection = gCtx.getBean("adminConnection", AdminConnection.class);
 		System.out.println("admin ID : " + adminConnection.getAdminId());

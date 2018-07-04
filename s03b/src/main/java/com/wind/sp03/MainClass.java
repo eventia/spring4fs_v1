@@ -14,7 +14,10 @@ public class MainClass {
 //		myCalculator.setSecondNum(3);
 		
 		String configLocation = "classpath:applicationCTX.xml";
+		
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+		
 		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 		ctx.close();
 		

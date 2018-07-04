@@ -17,7 +17,5 @@ public class LogAop {
 			System.out.println( signatureStr + " is finished.");
 			System.out.println( signatureStr + " 경과시간 : " + (et - st));
 		}
-		
 	}
-	
 }

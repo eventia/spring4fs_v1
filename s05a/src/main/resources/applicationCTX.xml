@@ -19,16 +19,25 @@
 	</bean>
 	
 	<bean id="student2" class="com.wind.sp05.Student">
-		<constructor-arg value="닐 페리" />
+<!-- 		<constructor-arg value="닐 페리" />
 		<constructor-arg value="15살" />
 		<constructor-arg value="1학년" />
-		<constructor-arg value="10번" />
+		<constructor-arg value="10번" /> -->
+
+		<constructor-arg index="1" value="15살" />
+		<constructor-arg index="0" value="닐 페리" />
+		<constructor-arg index="2" value="1학년" />
+		<constructor-arg index="3" value="10번" />		
 	</bean>
 	
 	<bean id="studentInfo" class="com.wind.sp05.StudentInfo">
-		<constructor-arg>
+<!--
+ 		<constructor-arg>
 			<ref bean="student1" />
 		</constructor-arg>
-	</bean>
+ -->
+		<constructor-arg ref="student1" />
+ 
+ 	</bean>
 	
 </beans>

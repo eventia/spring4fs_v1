@@ -3,8 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="calculator" class="com.wind.sp03.Calculator" />
-	
+ 	<bean id="calculator" class="com.wind.sp03.Calculator" />
+
+<!-- 
 	<bean id="myCalculator" class="com.wind.sp03.MyCalculator">
 		<property name="calculator" >
 			<ref bean="calculator"/>
@@ -12,5 +13,13 @@
 		<property name="firstNum" value="10"></property>
 		<property name="secondNum" value="4"></property>
 	</bean>
-
-</beans>
+ -->
+	
+	<bean id="myCalculator" class="com.wind.sp03.MyCalculator">
+		<property name="calculator" ref="calculator"/>
+		<property name="firstNum" value="10" />
+		<property name="secondNum" value="4" />
+	</bean>
+ 
+ 
+ </beans>

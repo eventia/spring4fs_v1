@@ -2,7 +2,6 @@ package com.wind.sp04;
 
 public class BmiCalculator {
 	
-	private double low_weight;
 	private double normal;
 	private double over_weight;
 	private double obesity;
@@ -26,7 +25,6 @@ public class BmiCalculator {
 	}
 
 	public void setLow_weight(double low_weight) {
-		this.low_weight = low_weight;
 	}
 
 	public void setNormal(double normal) {
@@ -40,6 +38,4 @@ public class BmiCalculator {
 	public void setObesity(double obesity) {
 		this.obesity = obesity;
 	}
-
-	
 }

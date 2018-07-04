@@ -21,6 +21,10 @@ public class Student implements InitializingBean, DisposableBean{
 		return age;
 	}
 
+
+
+	
+
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("afterPropertiesSet()");
@@ -33,4 +37,5 @@ public class Student implements InitializingBean, DisposableBean{
 		// last - 가장 마지막 
 	}
 	
+
 }

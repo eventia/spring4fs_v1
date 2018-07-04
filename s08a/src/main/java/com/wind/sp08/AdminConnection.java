@@ -14,6 +14,7 @@ public class AdminConnection implements EnvironmentAware, InitializingBean, Disp
 	@Override
 	public void setEnvironment(Environment env) {
 		System.out.println("setEnvironment()");
+		// Bean 생성 전 호출
 		setEnv(env);
 	}
 	

@@ -10,6 +10,18 @@ public class MyCalculator {
 		
 	}
 	
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+	
+	public void setFirstNum(int firstNum) {
+		this.firstNum = firstNum;
+	}
+	
+	public void setSecondNum(int secondNum) {
+		this.secondNum = secondNum;
+	}
+
 	public void add() {
 		calculator.addition(firstNum, secondNum);
 	}
@@ -26,15 +38,4 @@ public class MyCalculator {
 		calculator.division(firstNum, secondNum);
 	}
 
-	public void setCalculator(Calculator calculator) {
-		this.calculator = calculator;
-	}
-
-	public void setFirstNum(int firstNum) {
-		this.firstNum = firstNum;
-	}
-
-	public void setSecondNum(int secondNum) {
-		this.secondNum = secondNum;
-	}
 }
