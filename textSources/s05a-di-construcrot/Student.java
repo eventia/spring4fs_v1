@@ -7,15 +7,6 @@ public class Student {
 	private String gradeNum;
 	private String classNum;
 
-	
-	
-//	public Student(String name, String age, String gradeNum, String classNum) {
-//		this.name = name;
-//		this.age =  age;
-//		this.gradeNum = gradeNum;
-//		this.classNum = classNum;
-//	}
-
 	public Student(String name, String age, String gradeNum, String classNum) {
 		super();
 		this.name = name;
