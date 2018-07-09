@@ -11,7 +11,7 @@ public class MainClass {
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
 		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 		ctx.close();
-		
+				
 		myCalculator.add();
 		myCalculator.sub();
 		myCalculator.mul();
