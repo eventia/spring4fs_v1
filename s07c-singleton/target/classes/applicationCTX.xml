@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+ 	<bean id="student" class="com.wind.sp07.Student" scope="singleton">
+		<constructor-arg value="오드리"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+
+
+	<bean id="act1" class="com.wind.sp07.Student" scope="singleton">
+		<constructor-arg value="엠마 스톤"></constructor-arg>
+		<constructor-arg value="28"></constructor-arg>
+	</bean>
+	
+	<bean id="act2" class="com.wind.sp07.Student" scope="singleton">
+		<constructor-arg value="앤 헤서웨이"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+
+</beans>
