@@ -5,8 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	
-	<context:property-placeholder location="classpath:admin.properties, classpath:sub_admin.properties" />
-	
+<!--   <context:property-placeholder location="classpath:admin.properties, classpath:sub_admin.properties" /> -->
+  <context:property-placeholder location="classpath:*.properties" />
+
 	<bean id="adminConnection" class="com.wind.sp08.AdminConnection" >
 		<property name="adminId">
 			<value>${admin.id}</value>
