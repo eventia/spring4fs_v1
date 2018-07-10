@@ -11,17 +11,19 @@ public class AdminConnection implements EnvironmentAware, InitializingBean, Disp
 	private String adminId;
 	private String adminPw;
 
-//	public void setEnvironment(Environment environment) {
-//		System.out.println("setEnvironment()");
-//		setEnv(environment);
-//	}
 	@Override
-	public void setEnvironment(Environment env) {
+	public void setEnvironment(Environment environment) {
 		System.out.println("setEnvironment()");
-		setEnv(env);
+		setEnv(environment);
 	}
 
-//	public Environment getEnv() { return env; }
+//	@Override
+//	public void setEnvironment(Environment env) {
+//		System.out.println("setEnvironment()");
+//		setEnv(env);
+//	}
+
+	public Environment getEnv() { return env; }
 	public String getAdminId() { return adminId; }
 	public String getAdminPw() { return adminPw; }
 
@@ -29,7 +31,6 @@ public class AdminConnection implements EnvironmentAware, InitializingBean, Disp
 	public void setAdminId(String adminId) { this.adminId = adminId; }
 	public void setAdminPw(String adminPw) { this.adminPw = adminPw; }
 
-	
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("afterPropertiesSet()");
@@ -41,6 +42,4 @@ public class AdminConnection implements EnvironmentAware, InitializingBean, Disp
 	public void destroy() throws Exception {
 		System.out.println("destory()");
 	}
-
-
 }
