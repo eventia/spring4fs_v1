@@ -1,0 +1,6 @@
+s09a-aop-simple
+[pom.xml] - mvnrepository.com
+
+1. aspectj runtime 1.7.4 설치 [1.8.13]
+2. aspectj weaver 1.7.4 설치 [1.8.13]
+3. spring aop 3.2.17 설치 [4.3.18]

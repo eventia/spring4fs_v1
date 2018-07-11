@@ -6,8 +6,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 public class LogAop {
 
 	public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable {
+		
 		String signatureStr = joinpoint.getSignature().toShortString();
-		System.out.println( signatureStr + " is start.");
+		System.out.println(signatureStr + " is started.");
 		long st = System.currentTimeMillis();
 		
 		try {
@@ -15,10 +16,10 @@ public class LogAop {
 			return obj;
 		} finally {
 			long et = System.currentTimeMillis();
-			System.out.println( signatureStr + " is finished.");
-			System.out.println( signatureStr + " 경과시간 : " + (et - st));
+			System.out.println(signatureStr + " is finished.");
+			System.out.println(signatureStr + "경과시간 : " + (et-st));
+			System.out.println("현재시간 : " + et);
 		}
-		
 	}
 	
 	public void beforeAdvice(JoinPoint joinPoint) {

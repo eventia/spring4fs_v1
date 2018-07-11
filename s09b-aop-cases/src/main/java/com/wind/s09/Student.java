@@ -26,9 +26,7 @@ public class Student {
 		try {
 			System.out.println(10/0);
 		} catch (Exception e) {
-			System.out.println("### ERROR : " + e);
-		} finally {
-			System.out.println("### ERROR END");
-		}	
+			System.out.println("??? ERROR : " + e);
+		} 
 	}
 }

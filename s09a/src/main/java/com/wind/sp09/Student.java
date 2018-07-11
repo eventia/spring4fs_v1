@@ -6,19 +6,11 @@ public class Student {
 	private int age;
 	private int gradeNum;
 	private int classNum;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+	public int getAge() { return age; }
+	public void setAge(int age) { this.age = age; }
 	public int getGradeNum() {
 		return gradeNum;
 	}
@@ -31,12 +23,12 @@ public class Student {
 	public void setClassNum(int classNum) {
 		this.classNum = classNum;
 	}
-	
+
 	public void getStudentInfo() {
 		System.out.println("이름 : " + getName());
 		System.out.println("나이 : " + getAge());
 		System.out.println("학년 : " + getGradeNum());
 		System.out.println("반 : " + getClassNum());
 	}
-	
+
 }

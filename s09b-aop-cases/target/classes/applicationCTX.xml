@@ -8,6 +8,49 @@
 		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 		
 		<bean id="logAop" class="com.wind.s09.LogAop" />
+		
+		<aop:config>
+		
+		  <aop:aspect id="logger1" ref="logAop">
+		    <aop:pointcut expression="within(com.wind.s09.*)" id="publicM"/>
+		    <aop:around method="loggerAop" pointcut-ref="publicM"/>
+		  </aop:aspect>
 
 
+    <aop:aspect id="logger2" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.s09.*)"  />
+      <aop:before pointcut-ref="publicM" method="beforeAdvice" />
+    </aop:aspect>
+    
+    <aop:aspect id="logger3" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.s09.*)"  />
+      <aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice" />
+    </aop:aspect>
+    
+    
+    <aop:aspect id="logger4" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.s09.*)"  />
+      <aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice" />
+    </aop:aspect>
+    
+    <aop:aspect id="logger5" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.s09.*)"  />
+      <aop:after pointcut-ref="publicM" method="afterAdvice" />
+    </aop:aspect>	
+    	
+  </aop:config>
+
+  <bean id="student" class="com.wind.s09.Student" >
+    <property name="name" value="코난" />
+    <property name="age" value="16" />
+    <property name="gradeNum" value="3" />
+    <property name="classNum" value="5" />
+  </bean>
+  
+  <bean id="worker" class="com.wind.s09.Worker" >
+    <property name="name" value="셜록" />
+    <property name="age" value="35" />
+    <property name="job" value="탐정" />
+  </bean>
+  
 </beans>

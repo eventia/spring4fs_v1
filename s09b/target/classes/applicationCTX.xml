@@ -2,38 +2,41 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
 	<bean id="logAop" class="com.wind.sp09.LogAop" />
 	
 	<aop:config>
 	
-		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM1" expression="within(com.wind.sp09.*)"  />
-			<aop:around pointcut-ref="publicM" method="loggerAop" />
-		</aop:aspect>
-		
-		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM2" expression="within(com.wind.sp09.*)"  />
-			<aop:before pointcut-ref="publicM" method="beforeAdvice" />
-		</aop:aspect>
-		
-		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM3" expression="within(com.wind.sp09.*)"  />
-			<aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice" />
-		</aop:aspect>
+      <aop:aspect id="logger" ref="logAop">
+        <aop:pointcut expression="within(com.wind.sp09.*)" id="publicM"/>
+        <aop:around method="loggerAop" pointcut-ref="publicM"/>
+      </aop:aspect>
+
+
+    <aop:aspect id="logger" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+      <aop:before pointcut-ref="publicM" method="beforeAdvice" />
+    </aop:aspect>
     
-		
-		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM4" expression="within(com.wind.sp09.*)"  />
-			<aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice" />
-		</aop:aspect>
-		
-		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
-			<aop:after pointcut-ref="publicM" method="afterAdvice" />
-		</aop:aspect>
+    <aop:aspect id="logger" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+      <aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice" />
+    </aop:aspect>
+    
+    
+    <aop:aspect id="logger" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+      <aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice" />
+    </aop:aspect>
+    
+    <aop:aspect id="logger" ref="logAop">
+      <aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+      <aop:after pointcut-ref="publicM" method="afterAdvice" />
+    </aop:aspect> 
 		
 	</aop:config>
 	

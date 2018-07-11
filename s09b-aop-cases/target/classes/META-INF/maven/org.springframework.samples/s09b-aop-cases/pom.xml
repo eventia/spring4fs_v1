@@ -7,11 +7,11 @@
   <properties>
 
 		<!-- Generic properties -->
-		<java.version>1.6</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- Spring -->
+		<!-- Spring 5.0.4.//3.2.3. -->
 		<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
 
 		<!-- Hibernate / JPA -->
@@ -78,18 +78,23 @@
 			<scope>test</scope>
 		</dependency>
 
-        <!-- AOP관련, AspectJ -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${org.aspectj-version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${org.aspectj-version}</version>
-        </dependency>
+    <!-- AOP -->
+
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+     <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.7.4</version>
+    </dependency> 
+
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.7.4</version>
+    </dependency>
+
+
 		
 		
 	</dependencies>	
