@@ -10,22 +10,23 @@
 	<aop:config>
 	
 		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+			<aop:pointcut id="publicM1" expression="within(com.wind.sp09.*)"  />
 			<aop:around pointcut-ref="publicM" method="loggerAop" />
 		</aop:aspect>
 		
 		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+			<aop:pointcut id="publicM2" expression="within(com.wind.sp09.*)"  />
 			<aop:before pointcut-ref="publicM" method="beforeAdvice" />
 		</aop:aspect>
 		
 		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+			<aop:pointcut id="publicM3" expression="within(com.wind.sp09.*)"  />
 			<aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice" />
 		</aop:aspect>
+    
 		
 		<aop:aspect id="logger" ref="logAop">
-			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+			<aop:pointcut id="publicM4" expression="within(com.wind.sp09.*)"  />
 			<aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice" />
 		</aop:aspect>
 		

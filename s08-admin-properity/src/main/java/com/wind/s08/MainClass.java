@@ -16,7 +16,7 @@ public class MainClass {
 		
 		ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
 		ConfigurableEnvironment env = ctx.getEnvironment();
-		
+
 		MutablePropertySources propertySources = env.getPropertySources();
 		
 		try {
@@ -28,7 +28,7 @@ public class MainClass {
 		
 		GenericXmlApplicationContext gCtx = (GenericXmlApplicationContext)ctx;
 		
-		gCtx.load("applicationCTX.xml");
+		gCtx.load("classpath:applicationCTX.xml");
 		gCtx.refresh(); // Bean 객체 생성
 		
 		AdminConnection adminConnection = gCtx.getBean("adminConnection", AdminConnection.class);
