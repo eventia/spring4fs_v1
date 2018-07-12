@@ -13,21 +13,22 @@ public class ApplicationConfig {
 	private String adminId;
 	@Value("${admin.pw}")
 	private String adminPw;
-	@Value("${sub_admin.id}")	
+	@Value("${sub_admin.id}")
 	private String sub_adminId;
 	@Value("${sub_admin.pw}")
 	private String sub_adminPw;
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer properties() {
-		PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
+		PropertySourcesPlaceholderConfigurer configurer =
+			new PropertySourcesPlaceholderConfigurer();
 		Resource[] locations = new Resource[2];
 		locations[0] = new ClassPathResource("admin.properties");
 		locations[1] = new ClassPathResource("sub_admin.properties");
 		configurer.setLocations(locations);
 		return configurer;
 	}
-	
+
 	@Bean
 	public AdminConnection adminConfig() {
 		AdminConnection adminConnection = new AdminConnection();
