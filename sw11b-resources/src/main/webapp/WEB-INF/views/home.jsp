@@ -11,6 +11,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <p> <img src="resources/images.jpg"></p>
-<p> <img src="img_resources/img/photoshop-2845779_1920.jpg"></p>
+<p> <img src="miresources/iii/img/photoshop-2845779_1920.jpg"></p>
 </body>
 </html>
