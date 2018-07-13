@@ -1,6 +1,23 @@
 [sp11aweb]
 MVC Model
 
+0. 한글 처리 UTF-8 을 위해 Windows >> Preferences >> 아래 항목을 "UTF-8" 로 수정
+  General >> Workspace
+  JSON >> JSON Files
+  Web >> CSS Files
+  Web >> HTML Files
+  Web >> JSP Files
+  XML >> XML Files
+
+** jsp 파일 최상위 부분에 아래 추가
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+** 헤더에 아래 추가
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
 1. web.xml : 한글 utf-8
 	<!-- 한글처리를 위한 필터 UTF-8  -->
 	<filter>
