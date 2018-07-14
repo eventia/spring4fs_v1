@@ -41,7 +41,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("board/confirmId")
+	@RequestMapping("/board/confirmId")
 	public String confirmId(HttpServletRequest httpServletRequest, Model model) {
 		String id = httpServletRequest.getParameter("id");
 		String pw = httpServletRequest.getParameter("pw");
@@ -50,7 +50,7 @@ public class HomeController {
 		return "board/confirmId";
 	}
 	
-	@RequestMapping("board/checkId")
+	@RequestMapping("/board/checkId")
 	public String checkId(@RequestParam("id") String id, @RequestParam("pw") int pw, Model model) {
 		model.addAttribute("identify", id);
 		model.addAttribute("password", pw);
