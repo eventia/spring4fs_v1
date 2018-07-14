@@ -11,6 +11,6 @@ public class AnoController {
 	public String contentView(Model model) {
 		model.addAttribute("id", "123abc");
 		
-		return "/content/contentView";
+		return "content/contentView";
 	}
 }
