@@ -56,5 +56,4 @@ public class HomeController {
 		System.out.println(mv);
 		return mv;
 	}
-	
 }
