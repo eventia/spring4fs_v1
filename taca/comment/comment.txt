@@ -1,0 +1,7 @@
+[Step 1] - CH04.
+* pom.xml 수정
+  - spring-jdbc 와 spring-web 모듈 추가
+  - junit 4.12 로 변경
+
+[Step 2] - CH06.
+* .java 파일과 .xml 파일 생성

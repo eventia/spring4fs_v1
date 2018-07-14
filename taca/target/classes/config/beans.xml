@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+  <context:property-placeholder location="classpath:config/value.properties"/>
+     
+  <bean id="hello2" class="com.wind.simple.xml.Hello">
+    <constructor-arg index="0"  value="${myname}"/>
+    <constructor-arg index="1"  ref="${myprinter}" />
+    <property name="names">
+      <list>
+        <value>${value1}</value>
+        <value>${value2}</value>
+        <value>${value3}</value>
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="hello"  class="com.wind.simple.xml.Hello">
+    <!-- setName(String msg) -->
+    <property name="name"  value="Spring" />
+    <!-- setPrinter(Printer printer) -->
+    <property name="printer"  ref="printer" />    
+  </bean>
+
+  <bean id="printer"  class="com.wind.simple.xml.StringPrinter" />
+  <bean id="consolePrinter"   class="com.wind.simple.xml.ConsolePrinter" />
+
+</beans>
