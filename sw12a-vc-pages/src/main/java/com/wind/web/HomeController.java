@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -37,6 +38,17 @@ public class HomeController {
 		
 		System.out.println(model);
 		return "board/view";
+	}
+
+	@RequestMapping("/board/reply")
+	public ModelAndView reply() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("id", 10);
+		mv.addObject("name", "바람");
+		mv.setViewName("board/reply");
+		
+		System.out.println(mv);
+		return mv;
 	}
 	
 }
