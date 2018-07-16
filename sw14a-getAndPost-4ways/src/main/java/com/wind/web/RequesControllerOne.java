@@ -19,9 +19,9 @@ public class RequesControllerOne {
 	// 1. no write GET & POST
 	// 2. { GET * POST } both written
 
-	@RequestMapping(value="/student", method=RequestMethod.GET)
+//	@RequestMapping(value="/student", method=RequestMethod.GET)
 // 	@RequestMapping("/student")
-//	@RequestMapping(value="/student", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/student", method= {RequestMethod.GET, RequestMethod.POST})
 	public String goStudent(HttpServletRequest httpServletRequest, Model model) {
 		
 		String id = httpServletRequest.getParameter("id");
@@ -29,7 +29,10 @@ public class RequesControllerOne {
 		
 		return "student";
 	}
-	
+
+
+/*
+	// "/student" method=POST
 	@RequestMapping(value="/student", method=RequestMethod.POST)
 	public ModelAndView goStudent(HttpServletRequest httpServletRequest) {
 		
@@ -39,4 +42,6 @@ public class RequesControllerOne {
 		mv.addObject("studentId", id);
 		return mv;
 	}
+*/
+	
 }

@@ -14,6 +14,8 @@ createPage.jsp
 	String conPath = request.getContextPath();
 %>
 
+<p> ${conPath} </p>
+
 <!-- 
 <form action="student/create">
  -->

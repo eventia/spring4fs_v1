@@ -14,7 +14,9 @@ public class StudentController {
 
 	/*
 	@RequestMapping("/student/create")
-	public String studentCreate(@ModelAttribute("student") Student student, BindingResult result) {
+	public String studentCreate(
+		@ModelAttribute("student") Student student, 
+		BindingResult result) {
 		
 		String page = "createDonePage";
 		
@@ -30,7 +32,9 @@ public class StudentController {
 	
 	@RequestMapping("/student/create")
 //	@RequestMapping(value={"/student/create"})
-	public String studentCreate(@ModelAttribute("student") @Valid Student student, BindingResult result) {
+	public String studentCreate(
+			@ModelAttribute("student") @Valid Student student, 
+			BindingResult result) {
 		
 		String page = "createDonePage";
 		
