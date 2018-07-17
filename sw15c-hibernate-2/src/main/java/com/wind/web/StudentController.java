@@ -33,6 +33,5 @@ public class StudentController {
 	protected void initBinder(WebDataBinder binder) {
 		binder.setValidator(new StudentValidator());
 	}
-	
-	
+
 }
