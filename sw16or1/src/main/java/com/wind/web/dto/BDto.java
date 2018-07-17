@@ -3,7 +3,7 @@ package com.wind.web.dto;
 import java.sql.Timestamp;
 
 public class BDto {
-	
+
 	int bId;
 	String bName;
 	String bTitle;
@@ -13,23 +13,22 @@ public class BDto {
 	int bGroup;
 	int bStep;
 	int bIndent;
-	
+
 	public BDto() {
-		// TODO Auto-generated constructor stub
 	}
-	
-	public BDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate, 
+
+	public BDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate,
 			int bHit, int bGroup, int bStep, int bIndent) {
-		
-		this.bId       = bId      ; 
-		this.bName     = bName    ; 
-		this.bTitle    = bTitle   ; 
-		this.bContent  = bContent ; 
-		this.bDate     = bDate    ; 
-		this.bHit      = bHit     ; 
-		this.bGroup    = bGroup   ; 
-		this.bStep     = bStep    ; 
-		this.bIndent   = bIndent  ;   
+
+		this.bId       = bId      ;
+		this.bName     = bName    ;
+		this.bTitle    = bTitle   ;
+		this.bContent  = bContent ;
+		this.bDate     = bDate    ;
+		this.bHit      = bHit     ;
+		this.bGroup    = bGroup   ;
+		this.bStep     = bStep    ;
+		this.bIndent   = bIndent  ;
 	}
 
 	public int getbId() {
