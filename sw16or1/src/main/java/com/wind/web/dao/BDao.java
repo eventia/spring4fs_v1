@@ -287,7 +287,6 @@ public class BDao {
 				e2.printStackTrace();
 			}
 		}
-		
 	}
 	
 	private void replyShape( String strGroup, String strStep) {

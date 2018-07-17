@@ -2,6 +2,7 @@ package com.wind.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,10 @@ import com.wind.web.service.BWriteService;
 public class BController {
 	
 	BService service = null;
+	
+	public JdbcTemplate template;
+
+	public void setTemplate(JdbcTemplate template) { this.template = template; }
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
