@@ -1,3 +1,6 @@
+spring-jdbc 4.1.4.RELEASE 추가
+
+
 [sp16-oracle-01]
 [오라클 DB 설정]
 1. oracle 11g express db 설치

@@ -63,8 +63,8 @@ public class BDao {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent
-				from mvc_board order by bGroup desc, bStep asc";
+			String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent "
+				 + " from mvc_board order by bGroup desc, bStep asc";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
