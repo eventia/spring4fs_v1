@@ -203,8 +203,8 @@ public class BDao {
 		PreparedStatement preparedStatement = null;
 
 		try {
-			connection = dataSource.getConnection();
 			String query = "insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			connection = dataSource.getConnection();
 			preparedStatement = connection.prepareStatement(query);
 
 			preparedStatement.setString(1, bName);
@@ -234,9 +234,9 @@ public class BDao {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		try {
+			String query = "select * from mvc_board where bId = ?";
 
 			connection = dataSource.getConnection();
-			String query = "select * from mvc_board where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(str));
 			resultSet = preparedStatement.executeQuery();

@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.wind.web_mybatis.dao.ContentDao;
 import com.wind.web_mybatis.dto.ContentDto;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
@@ -32,10 +29,7 @@ public class HomeController {
 	public void setDao(ContentDao dao) {
 		this.dao = dao;
 	}
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);

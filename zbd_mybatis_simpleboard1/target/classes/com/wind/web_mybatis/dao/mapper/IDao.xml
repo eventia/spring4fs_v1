@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wind.web_mybatis.dao.IDao">
+
+  <select id="listDao" resultType="com.wind.web_mybatis.dto.ContentDto">
+    SELECT * FROM BOARD ORDER BY MID DESC
+  </select>
+  
+
+  <insert id="writeDao">
+    INSERT INTO BOARD (MID, MWRITER, MTITLE, MCONTENT) VALUES (BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3})
+  </insert>
+  
+  
+  <delete id="deleteDao">
+    DELETE FROM BOARD WHERE MID = #{param1}
+  </delete>
+  
+  
+  <select id="viewDao" resultType="com.wind.web_mybatis.dto.ContentDto">
+    SELECT * FROM BOARD WHERE MID = #{param1}
+  </select>
+
+  <update id="modifyDao">
+    update mvc_board set bName = #{param1}, bTitle = #{param2}, bContent = #{param3} where bId = #{param4}
+  </update>
+
+
+  <select id="reply_viewDao"  resultType="com.wind.web_mybatis.dto.ContentDto">
+    select * from mvc_board where bId = #{param1}
+  </select>
+  
+
+  <insert id="replyDao">
+    insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+  </insert>  
+
+
+  <update id="replyShapeDao">
+    update mvc_board set bStep = bStep + 1 where bGroup = #{param1} and bStep > #{param2}
+  </update> 
+  
+
+  <update id="upHitDao">
+    update mvc_board set bHit = bHit + 1 where bId = #{param1}
+  </update>   
+  
+</mapper>

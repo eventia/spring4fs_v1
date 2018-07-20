@@ -25,6 +25,13 @@ public class BController {
 	BService service = null;
 	private JdbcTemplate template;
 
+	
+	
+	
+	
+	
+	
+	
 	@Autowired
 	public void setTemplates(JdbcTemplate template) {
 		this.template = template;
