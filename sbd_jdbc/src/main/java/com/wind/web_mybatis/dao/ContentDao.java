@@ -33,13 +33,9 @@ public class ContentDao implements IDao{
 		return dtos;
 	}
 	
-	
 	@Override
-	public void writeDao(final String mWriter, final String mContent) {
-		System.out.println("writeDao()");
-		
+	public void writeDao(final String mWriter, final String mContent) { System.out.println("writeDao()");
 		this.template.update(new PreparedStatementCreator() {
-			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con)
 					throws SQLException {
@@ -50,32 +46,22 @@ public class ContentDao implements IDao{
 				return pstmt;
 			}
 		});
-		
 	}
 
-	
 	@Override
-	public ContentDto viewDao(String strID) {
-		System.out.println("viewDao()");
-		
+	public ContentDto viewDao(String strID) { System.out.println("viewDao()");
 		String query = "select * from board where mId = " + strID;
 		return template.queryForObject(query, new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
 	}
 
-	
 	@Override
-	public void deleteDao(final String bId) {
-		System.out.println("deleteDao()");
-		
+	public void deleteDao(final String bId) { System.out.println("deleteDao()");
 		String query = "delete from board where mId = ?";
 		this.template.update(query, new PreparedStatementSetter() {
-			
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, Integer.parseInt(bId));
 			}
 		});
-		
 	}
-
 }
