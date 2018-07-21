@@ -4,20 +4,23 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.wind.web.dto.BDto;
-import com.wind.web.util.Constant;
 
-public class BDao<DBto> {
+public class BDao {
 	
-	JdbcTemplate template = null;
+	JdbcTemplate template;
 	
-	public BDao() {
-		template = Constant.template;
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
 	}
+	
+	public BDao() { }
 
 	public ArrayList<BDto> list() {
 		String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc" ;
@@ -26,7 +29,7 @@ public class BDao<DBto> {
 
 	public BDto contentView(String strID) {
 		upHit(strID);
-		String query = "select * from mvc_board where bId = " + strID;
+		String query = "select * from mvc_board where bId = " + strID; System.out.println("strID = " + strID);
 		return template.queryForObject(query, new BeanPropertyRowMapper<BDto>(BDto.class));
 	}
 	
