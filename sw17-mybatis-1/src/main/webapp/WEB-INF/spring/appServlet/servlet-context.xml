@@ -30,7 +30,6 @@
 		<beans:property name="password" value="tiger" />
 	</beans:bean>
 	
-	
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
 		<beans:property name="mapperLocations" value="classpath:com/wind/web/dao/mapper/*.xml"></beans:property>
