@@ -72,5 +72,4 @@ public class BController {
 		model.addAttribute("reply_view", dto);
 		return "reply_view";
 	}
-	
 }

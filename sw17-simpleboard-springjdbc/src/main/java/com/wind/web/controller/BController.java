@@ -98,5 +98,4 @@ public class BController {
 		service.execute(model);
 		return "reply_view";
 	}
-	
 }
