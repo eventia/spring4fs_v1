@@ -14,10 +14,33 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
-	
 	<dependencies>
 	
-		<!-- Spring -->
+		<!-- Spring -->        
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -30,11 +53,20 @@
 				 </exclusion>
 			</exclusions>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+    <!-- JDBC -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${org.springframework-version}</version>
+    </dependency>
+
 				
 		<!-- AspectJ -->
 		<dependency>
@@ -120,12 +152,7 @@
 			<version>2.2.2</version>
 		</dependency>
 		
-		<!-- JDBC -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>4.1.4.RELEASE</version>
-		</dependency>
+
 		
 		<!-- Test -->
 		<dependency>
@@ -135,29 +162,6 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>3.2.5.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>3.2.4.RELEASE</version>
-		</dependency>
 		
 	</dependencies>
     <build>

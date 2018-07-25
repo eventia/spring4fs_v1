@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+ 
+
+<!-- 
+<security:http use-expressions="true">
+    <security:intercept-url pattern="/**" access="hasRole('USER')" />
+    <security:form-login />
+    <security:logout />
+</security:http> 
+-->
+
+  <security:http use-expressions="true">
+    <security:intercept-url pattern="/login" access="permitAll" />
+    <security:intercept-url pattern="resources/**" access="permitAll" />
+    <security:intercept-url pattern="/**" access="hasAnyRole('ROLE_USER')" />
+    
+    <security:form-login login-page="/login" 
+                        default-target-url="/monitering"
+                        authentication-failure-url="/login?error"
+                        username-parameter="username"
+                        password-parameter="password"
+                        always-use-default-target='true' />
+                        
+    <security:logout invalidate-session="true" logout-url="/logout" logout-success-url="/login?logout" />
+    <security:access-denied-handler error-page="/login/error.do"/>
+    <security:csrf/>
+<!--     <security:csrf disabled="false"/> -->
+  </security:http>
+
+
+ 
+  <security:authentication-manager>
+    <security:authentication-provider>
+      <security:user-service>
+        <security:user name="userid" password="userpw" authorities="ROLE_USER"/>
+        <security:user name="admin" password="adminpw" authorities="ROLE_ADMIN"/>
+      </security:user-service>
+    </security:authentication-provider>
+  </security:authentication-manager>
+
+
+
+</beans>
