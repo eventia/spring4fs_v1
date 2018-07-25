@@ -11,6 +11,7 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<a href="login.html">유저로그인</a>
+<a href="welcome.html">관리자로그인</a>
 </body>
 </html>

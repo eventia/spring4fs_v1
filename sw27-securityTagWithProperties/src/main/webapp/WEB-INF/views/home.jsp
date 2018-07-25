@@ -10,7 +10,9 @@
 <h1>
 	Hello world!  
 </h1>
+
 <a href="login.html">유저로그인</a>
 <a href="welcome.html">관리자로그인</a>
+
 </body>
 </html>
