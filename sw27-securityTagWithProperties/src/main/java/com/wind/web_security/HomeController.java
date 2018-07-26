@@ -40,5 +40,19 @@ public class HomeController {
 	public String loginForm(Locale locale, Model model) {
 		return "security/loginForm";
 	}
+
+	@RequestMapping("/index")
+	public String index(Locale locale, Model model) {
+		return "index";
+	}
+
+	@RequestMapping("/notice")
+	public String notice(Locale locale, Model model) {
+		return "notice";
+	}
+	@RequestMapping("/notice/a")
+	public String notice_a(Locale locale, Model model) {
+		return "notice/a";
+	}
 	
 }
