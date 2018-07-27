@@ -16,11 +16,9 @@
  	<security:http auto-config="true" use-expressions="true">
 		<security:form-login login-page="/loginForm.html"
 					authentication-failure-url="/loginForm.html?ng"/>
-					
 		<security:intercept-url pattern="/notice/**" access="permitAll"/>
 		<security:intercept-url pattern="/user/**" access="hasRole('ROLE_USER')"/>
 		<security:intercept-url pattern="/login.htm*" access="hasRole('ROLE_USER')"/>
-		
 		<security:intercept-url pattern="/welcome.htm*" access="hasRole('ROLE_ADMIN')"/> 
 	</security:http>
 

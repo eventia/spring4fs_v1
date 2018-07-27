@@ -12,6 +12,8 @@
 
 <P>Username is ${username}</P>
 <br>
+
+
 <a href="<c:url value="j_spring_security_logout" />" target="_self">Logout</a>
 </body>
 </html>
