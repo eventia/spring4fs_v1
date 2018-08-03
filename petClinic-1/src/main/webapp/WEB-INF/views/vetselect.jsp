@@ -18,6 +18,18 @@
   </tr>
   </c:forEach>
 
+  <c:forEach items="${vetselect2}" var="dto2">
+  <tr>
+    <td>id = 
+    <td>${dto2.id }</td>
+  </tr>
+  <tr>
+    <td>fname = 
+    <td>${dto2.first_name }</td>
+  </tr>
+  </c:forEach>
+
+
 </table>
 
 
