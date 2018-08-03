@@ -40,7 +40,6 @@ public class VetsController {
 		dto = dao.vetselectDao(Integer.parseInt(request.getParameter("specialty_id")));
 
 		ArrayList dto2 = new ArrayList<Integer>();
-//		ArrayList<integer> dto2;
 		for(int i=0;i<dto.size();i++) {
 //			model.addAttribute("vetselect2", dao.vetselect2Dao(dto.get(i).getVet_id()));
 			dto2.add(dao.vetselect2Dao(dto.get(i).getVet_id()));
