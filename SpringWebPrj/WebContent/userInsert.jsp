@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>»ç¿ëÀÚ Á¤º¸ µî·Ï</title>
+<title>ì‚¬ìš©ìž ì •ë³´ ë“±ë¡</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -11,26 +11,26 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center">»ç¿ëÀÚ Á¤º¸ µî·Ï</h2>
+		<h2 class="text-center">ì‚¬ìš©ìž ì •ë³´ ë“±ë¡</h2>
 		<div>
 			<form method="post" action="insertUser.do"  >
 				<table  class="table table-bordered table table-hover">
 					<tr>
-						<td>¾ÆÀÌµð :</td>
+						<td>ì•„ì´ë”” :</td>
 						<td><input type="text" name="userId"  /></td>
 					</tr>
 					<tr>
-						<td>ÀÌ¸§ :</td>
+						<td>ì´ë¦„ :</td>
 						<td><input type="text" name="name" /></td>
 					</tr>
 					<tr>
-						<td>¼ºº° :</td>
+						<td>ì„±ë³„ :</td>
 						<td><c:forEach var="genderName" items="${map.genderList}">
 									<input type="radio" name="gender" value="${genderName}">${genderName}
 							  </c:forEach></td>
 					</tr>
 					<tr>
-						<td>°ÅÁÖÁö :</td>
+						<td>ê±°ì£¼ì§€ :</td>
 						<td><select name="city">
 								<c:forEach var="cityName" items="${map.cityList}">
 									<option value="${cityName}">${cityName}</option>
@@ -39,10 +39,10 @@
 					</tr>
 					<tr>
 					<td colspan="2"  class="text-center">
-						<input type="submit" value="µî·Ï" /></td>
+						<input type="submit" value="ë“±ë¡" /></td>
 					</tr>
 					<tr>					
-						<td colspan="2" class="text-center"><a href="getUserList.do">»ç¿ëÀÚ ¸ñ·Ïº¸±â</a></td>
+						<td colspan="2" class="text-center"><a href="getUserList.do">ì‚¬ìš©ìž ëª©ë¡ë³´ê¸°</a></td>
 					</tr>
 				</table>
 			</form>

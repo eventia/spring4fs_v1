@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>»ç¿ëÀÚ »ó¼¼Á¤º¸</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ì‚¬ìš©ì ìƒì„¸ì •ë³´</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -12,12 +12,12 @@
 </head>
 <body>
 	<div class="container">
-	    <h2 class="text-center">»ç¿ëÀÚ »ó¼¼Á¤º¸</h2>
+	    <h2 class="text-center">ì‚¬ìš©ì ìƒì„¸ì •ë³´</h2>
 		<table class="table table-bordered table table-hover">
-			<tr><td>¾ÆÀÌµğ :</td><td>${user.userId}</td></tr>
-			<tr><td>ÀÌ¸§ :</td><td>${user.name}</td></tr>
-			<tr><td>¼ºº° :</td><td>${user.gender}</td></tr>
-			<tr><td>°ÅÁÖÁö :</td><td>${user.city}</td></tr>
+			<tr><td>ì•„ì´ë”” :</td><td>${user.userId}</td></tr>
+			<tr><td>ì´ë¦„ :</td><td>${user.name}</td></tr>
+			<tr><td>ì„±ë³„ :</td><td>${user.gender}</td></tr>
+			<tr><td>ê±°ì£¼ì§€ :</td><td>${user.city}</td></tr>
 		</table>
 	</div>
 </body>

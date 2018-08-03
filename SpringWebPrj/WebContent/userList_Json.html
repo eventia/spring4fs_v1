@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>RESTful À¥¼­ºñ½º Å¬¶óÀÌ¾ğÆ®(JSON)</title>
+<meta charset="UTF-8">
+<title>RESTful ì›¹ì„œë¹„ìŠ¤ í´ë¼ì´ì–¸íŠ¸(JSON)</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -23,9 +23,9 @@
 		init();
 	});
 	
-	//ÃÊ±âÈ­
+	//ì´ˆê¸°í™”
 	function init() {
-		//ÃÊ±âÈ­ ¹öÆ° Å¬¸¯
+		//ì´ˆê¸°í™” ë²„íŠ¼ í´ë¦­
 		$('#btnInit').on('click',function(){
 			$('#form1').each(function(){
 				this.reset();
@@ -33,47 +33,47 @@
 		});
 	}//init
 	
-	//»ç¿ëÀÚ »èÁ¦ ¿äÃ»
+	//ì‚¬ìš©ì ì‚­ì œ ìš”ì²­
 	function userDelete() {
-		//»èÁ¦ ¹öÆ° Å¬¸¯
+		//ì‚­ì œ ë²„íŠ¼ í´ë¦­
 		$('body').on('click','#btnDelete',function(){
 			var userId = $(this).closest('tr').find('#hidden_userId').val();
-			var result = confirm(userId +" »ç¿ëÀÚ¸¦ Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?");
+			var result = confirm(userId +" ì‚¬ìš©ìë¥¼ ì •ë§ë¡œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 			if(result) {
 				$.ajax({
 					url:'users/'+userId,  type:'DELETE',
 					contentType:'application/json;charset=utf-8',
 					dataType:'json',
 					error:function(xhr,status,msg){
-						console.log("»óÅÂ°ª :" + status + " Http¿¡·¯¸Ş½ÃÁö :"+msg);
+						console.log("ìƒíƒœê°’ :" + status + " Httpì—ëŸ¬ë©”ì‹œì§€ :"+msg);
 					}, success:function(xhr) {
 						console.log(xhr.result);
 						userList();
 					}
 				});      }//if
-		}); //»èÁ¦ ¹öÆ° Å¬¸¯
+		}); //ì‚­ì œ ë²„íŠ¼ í´ë¦­
 	}//userDelete
 	
-	//»ç¿ëÀÚ Á¶È¸ ¿äÃ»
+	//ì‚¬ìš©ì ì¡°íšŒ ìš”ì²­
 	function userSelect() {
-		//Á¶È¸ ¹öÆ° Å¬¸¯
+		//ì¡°íšŒ ë²„íŠ¼ í´ë¦­
 		$('body').on('click','#btnSelect',function(){
 			var userId = $(this).closest('tr').find('#hidden_userId').val();
-			//Æ¯Á¤ »ç¿ëÀÚ Á¶È¸
+			//íŠ¹ì • ì‚¬ìš©ì ì¡°íšŒ
 			$.ajax({
 				url:'users/'+userId,
 				type:'GET',
 				contentType:'application/json;charset=utf-8',
 				dataType:'json',
 				error:function(xhr,status,msg){
-					alert("»óÅÂ°ª :" + status + " Http¿¡·¯¸Ş½ÃÁö :"+msg);
+					alert("ìƒíƒœê°’ :" + status + " Httpì—ëŸ¬ë©”ì‹œì§€ :"+msg);
 				},
 				success:userSelectResult
 			});
-		}); //Á¶È¸ ¹öÆ° Å¬¸¯
+		}); //ì¡°íšŒ ë²„íŠ¼ í´ë¦­
 	}//userSelect
 	
-	//»ç¿ëÀÚ Á¶È¸ ÀÀ´ä
+	//ì‚¬ìš©ì ì¡°íšŒ ì‘ë‹µ
 	function userSelectResult(xhr) {
 		var user = xhr.data;
 		$('input:text[name="userId"]').val(user.userId);
@@ -82,9 +82,9 @@
 		$('select[name="city"]').val(user.city).attr("selected", "selected");
 	}//userSelectResult
 	
-	//»ç¿ëÀÚ ¼öÁ¤ ¿äÃ»
+	//ì‚¬ìš©ì ìˆ˜ì • ìš”ì²­
 	function userUpdate() {
-		//¼öÁ¤ ¹öÆ° Å¬¸¯
+		//ìˆ˜ì • ë²„íŠ¼ í´ë¦­
 		$('#btnUpdate').on('click',function(){
 			var userId = $('input:text[name="userId"]').val();
 			var name = $('input:text[name="name"]').val();
@@ -104,12 +104,12 @@
 			        alert(" status: "+status+" er:"+message);
 			    }
 			});
-		});//¼öÁ¤ ¹öÆ° Å¬¸¯
+		});//ìˆ˜ì • ë²„íŠ¼ í´ë¦­
 	}//userUpdate
 	
-	//»ç¿ëÀÚ µî·Ï ¿äÃ»
+	//ì‚¬ìš©ì ë“±ë¡ ìš”ì²­
 	function userInsert(){
-		//µî·Ï ¹öÆ° Å¬¸¯
+		//ë“±ë¡ ë²„íŠ¼ í´ë¦­
 		$('#btnInsert').on('click',function(){
 			var userId = $('input:text[name="userId"]').val();
 			var name = $('input:text[name="name"]').val();
@@ -131,10 +131,10 @@
 			        alert(" status: "+status+" er:"+message);
 			    } 
 			 });  
-		});//µî·Ï ¹öÆ° Å¬¸¯
+		});//ë“±ë¡ ë²„íŠ¼ í´ë¦­
 	}//userInsert
 	
-	//»ç¿ëÀÚ ¸ñ·Ï Á¶È¸ ¿äÃ»
+	//ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ ìš”ì²­
 	function userList() {
 		$.ajax({
 			url:'users',
@@ -142,13 +142,13 @@
 			contentType:'application/json;charset=utf-8',
 			dataType:'json',
 			error:function(xhr,status,msg){
-				alert("»óÅÂ°ª :" + status + " Http¿¡·¯¸Ş½ÃÁö :"+msg);
+				alert("ìƒíƒœê°’ :" + status + " Httpì—ëŸ¬ë©”ì‹œì§€ :"+msg);
 			},
 			success:userListResult
 		});
 	}//userList
 	
-	//»ç¿ëÀÚ ¸ñ·Ï Á¶È¸ ÀÀ´ä
+	//ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ ì‘ë‹µ
 	function userListResult(xhr) {
 		console.log(xhr.data);
 		$("tbody").empty();
@@ -158,8 +158,8 @@
 			.append($('<td>').html(item.name))
 			.append($('<td>').html(item.gender))
 			.append($('<td>').html(item.city))
-			.append($('<td>').html('<button id=\'btnSelect\'>Á¶È¸</button>'))
-			.append($('<td>').html('<button id=\'btnDelete\'>»èÁ¦</button>'))
+			.append($('<td>').html('<button id=\'btnSelect\'>ì¡°íšŒ</button>'))
+			.append($('<td>').html('<button id=\'btnDelete\'>ì‚­ì œ</button>'))
 			.append($('<input type=\'hidden\' id=\'hidden_userId\'>').val(item.userId))
 			.appendTo('tbody');
 		});//each
@@ -169,51 +169,51 @@
 <body>
 <div class="container">
 	<form id="form1"  class="form-horizontal">
-		<h2>»ç¿ëÀÚ µî·Ï ¹× ¼öÁ¤</h2>
+		<h2>ì‚¬ìš©ì ë“±ë¡ ë° ìˆ˜ì •</h2>
 		<div class="form-group">		
-			<label >¾ÆÀÌµğ:</label>
+			<label >ì•„ì´ë””:</label>
 			<input type="text"  class="form-control" name="userId" >
 		</div>	
 		<div class="form-group">
-			<label>ÀÌ¸§:</label>
+			<label>ì´ë¦„:</label>
 			<input type="text"  class="form-control"  name="name" >
 		</div>	
 		<div class="form-group">
-			<label >¼ºº°:</label>
+			<label >ì„±ë³„:</label>
 			<div class="radio">
-				<label><input type="radio"  name="gender"  value="³²">³²</label>
+				<label><input type="radio"  name="gender"  value="ë‚¨">ë‚¨</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio"  name="gender"  value="¿©">¿©</label>
+				<label><input type="radio"  name="gender"  value="ì—¬">ì—¬</label>
 			</div>	
 		</div>	    
 		<div class="form-group">   
-			<label>°ÅÁÖÁö:</label>
+			<label>ê±°ì£¼ì§€:</label>
 				<select class="form-control" name="city">
-					   		<option value="¼­¿ï">¼­¿ï</option>
-					   		<option value="°æ±â">°æ±â</option>
-					   		<option value="ºÎ»ê">ºÎ»ê</option>
-					   		<option value="´ë±¸">´ë±¸</option>
-					   		<option value="Á¦ÁÖ">Á¦ÁÖ</option>
+					   		<option value="ì„œìš¸">ì„œìš¸</option>
+					   		<option value="ê²½ê¸°">ê²½ê¸°</option>
+					   		<option value="ë¶€ì‚°">ë¶€ì‚°</option>
+					   		<option value="ëŒ€êµ¬">ëŒ€êµ¬</option>
+					   		<option value="ì œì£¼">ì œì£¼</option>
 				</select>
 		</div>  
 		<div class="btn-group">      
-				<input type="button"  class="btn btn-primary" value="µî·Ï"  id="btnInsert" /> 
-				<input type="button"  class="btn btn-primary" value="¼öÁ¤"  id="btnUpdate" />
-				<input type="button"  class="btn btn-primary" value="ÃÊ±âÈ­" id="btnInit" />
+				<input type="button"  class="btn btn-primary" value="ë“±ë¡"  id="btnInsert" /> 
+				<input type="button"  class="btn btn-primary" value="ìˆ˜ì •"  id="btnUpdate" />
+				<input type="button"  class="btn btn-primary" value="ì´ˆê¸°í™”" id="btnInit" />
 		</div>
 	</form>
 </div>		
 <hr/>		
 <div class="container">	
-	<h2>»ç¿ëÀÚ ¸ñ·Ï</h2>
+	<h2>ì‚¬ìš©ì ëª©ë¡</h2>
 	<table class="table text-center">
 		<thead>
 		<tr>
-			<th class="text-center">¾ÆÀÌµğ</th>
-			<th class="text-center">ÀÌ¸§</th>
-			<th class="text-center">¼ºº°</th>
-			<th class="text-center">°ÅÁÖÁö</th>
+			<th class="text-center">ì•„ì´ë””</th>
+			<th class="text-center">ì´ë¦„</th>
+			<th class="text-center">ì„±ë³„</th>
+			<th class="text-center">ê±°ì£¼ì§€</th>
 		</tr>
 		</thead>
 		<tbody></tbody>

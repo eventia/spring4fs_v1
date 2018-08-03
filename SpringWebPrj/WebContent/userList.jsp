@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>»ç¿ëÀÚ °ü¸®</title>
+<title>ì‚¬ìš©ìž ê´€ë¦¬</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -11,14 +11,14 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center">»ç¿ëÀÚ ¸ñ·Ï</h2>
+		<h2 class="text-center">ì‚¬ìš©ìž ëª©ë¡</h2>
 		<table class="table table-bordered table table-hover"> 
 			<thead> 
 				<tr> 
-					<th>¾ÆÀÌµð</th> 
-					<th>ÀÌ¸§</th> 
-					<th>¼ºº°</th>
-					<th>°ÅÁÖÁö</th>
+					<th>ì•„ì´ë””</th> 
+					<th>ì´ë¦„</th> 
+					<th>ì„±ë³„</th>
+					<th>ê±°ì£¼ì§€</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr> 
@@ -33,14 +33,14 @@
 					<td>${user.gender}</td>
 					<td>${user.city}</td>
 					<td>
-					     <a href="updateUserForm.do?id=${user.userId}">¼öÁ¤</a>
+					     <a href="updateUserForm.do?id=${user.userId}">ìˆ˜ì •</a>
 					</td>
-					<td><a href="deleteUser.do/${user.userId}">»èÁ¦</a></td>
+					<td><a href="deleteUser.do/${user.userId}">ì‚­ì œ</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td colspan="7">
-					<a href="insertUserForm.do">»ç¿ëÀÚ µî·Ï</a>
+					<a href="insertUserForm.do">ì‚¬ìš©ìž ë“±ë¡</a>
 				</td>
 			</tr>
 		</tbody> 
