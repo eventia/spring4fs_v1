@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wind.web.dao.IDao;
+import com.wind.web.dto.VetsDto;
 import com.wind.web.dto.VetspecialtiesDto;
 
 @Controller
@@ -28,9 +29,12 @@ public class VetsController {
 	
 	@RequestMapping("/vetselect_view")
 	public String vetselect_view(HttpServletRequest request, Model model) { 
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("vetselect_view", dao.vetselect_viewDao());
 		return "vetselect_view"; 
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/vetselect")
 	public String vetselect(HttpServletRequest request, Model model) {
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -39,11 +43,10 @@ public class VetsController {
 		ArrayList<VetspecialtiesDto> dto;
 		dto = dao.vetselectDao(Integer.parseInt(request.getParameter("specialty_id")));
 
+		@SuppressWarnings("rawtypes")
 		ArrayList dto2 = new ArrayList<Integer>();
 		for(int i=0;i<dto.size();i++) {
-//			model.addAttribute("vetselect2", dao.vetselect2Dao(dto.get(i).getVet_id()));
 			dto2.add(dao.vetselect2Dao(dto.get(i).getVet_id()));
-			
 			System.out.println(dto.get(i).getVet_id());
 			System.out.println("vets_id = "+dao.vetselect2Dao(dto.get(i).getVet_id()));
 		}
@@ -53,11 +56,15 @@ public class VetsController {
 		System.out.println("size = " + dto.get(1).getVet_id());		
 		System.out.println(dto.getClass());
 		System.out.println(dto.size());
-		
-//		model.addAttribute("vetselect", dto);
 		return "vetselect";
 	}
-	
+
+	@RequestMapping("/vetselect3")
+	public String vetselect3(HttpServletRequest request, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		model.addAttribute("vetselect3", dao.vetselect3Dao(Integer.parseInt(request.getParameter("specialty_id"))));
+		return "vetselect3";
+	}
 	
 	
 	

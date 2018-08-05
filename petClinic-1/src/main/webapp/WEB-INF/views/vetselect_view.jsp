@@ -9,17 +9,42 @@
 </head>
 <body>
 
-  <table width="600" cellpadding="0" cellspacing="0" border="1">
-    <form action="vetselect" method="get">
+  <table width="600" cellpadding="0" cellspacing="0" border="0">
+
       <tr>
-        <td width="70"> speciality_id  </td>
-        <td> <input type="text" name="specialty_id" size = "50"> </td>
+        <td colspan="2"> 수의사 전공별 열람  </td>
       </tr>
+
+       <tr>
+        <td> 
+          <form action="vetselect" method="get">
+	          <select name="specialty_id" >          
+		          <c:forEach items="${vetselect_view}" var="dto">
+		            <option value="${dto.id}"> ${dto.name} </option>
+		          </c:forEach>
+	          </select> 
+        </td>
+        <td > <input type="submit" value="전공검색"> &nbsp;&nbsp; </td>
+       </tr>
+
       <tr >
-        <td colspan="2"> <input type="submit" value="입력"> &nbsp;&nbsp; </td>
+        <td> 
+          <form action="vetselect" method="get">
+          <c:forEach items="${vetselect_view}" var="dto">
+            <input type="radio" name="specialty_id" value="${dto.id}"> ${dto.name}
+          </c:forEach>
+        </td>
+        <td > <input type="submit" value="전공검색"> &nbsp;&nbsp; </td>
       </tr>
     </form>
   </table>
+
+<!--         라디오버튼을 이용한 입력 -->
+<%-- 
+          <c:forEach items="${vetselect_view}" var="dto">
+            <input type="radio" name="specialty_id" value="${dto.id}"> ${dto.name}
+          </c:forEach>
+--%>
 
 
 </body>
