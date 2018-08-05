@@ -13,7 +13,7 @@
   <select id="vetslistDao" resultType="com.wind.web.dto.VetsDto">
     SELECT id FROM VETS ORDER BY FIRST_NAME ASC
   </select>
-
+ 
   <select id="vetselectDao" resultType="com.wind.web.dto.VetspecialtiesDto">
     SELECT vet_id FROM vet_specialties WHERE specialty_id = #{param1}
   </select>
