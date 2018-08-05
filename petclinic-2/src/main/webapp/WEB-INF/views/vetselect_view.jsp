@@ -9,44 +9,29 @@
 </head>
 <body>
 
-  <table width="600" cellpadding="0" cellspacing="0" border="0">
 
-      <tr>
-        <td colspan="2"> 수의사 전공별 열람  </td>
-      </tr>
+<p>수의사 전공별 열람</p>
 
-       <tr>
-        <td> 
-        verselect - SQL + JAVA <br>
-          <form action="vetselect" method="get">
-            <select name="specialty_id" >          
-              <c:forEach items="${vetselect_view}" var="dto">
-                <option value="${dto.id}"> ${dto.name} </option>
-              </c:forEach>
-            </select> 
-        </td>
-        <td > <input type="submit" value="전공검색"> &nbsp;&nbsp; </td>
-       </tr>
+<p>verselect - SQL + JAVA </p>
+  <form action="vetselect" method="get">
+    <select name="specialty_id" >          
+      <c:forEach items="${vetselect_view}" var="dto">
+        <option value="${dto.id}"> ${dto.name} </option>
+      </c:forEach>
+    </select>
+    <input type="submit" value="전공검색"> &nbsp;&nbsp;  
+  </form>
 
-      <tr >
-        <td> 
-          verselect3 - Using sub SQL <br>
-          <form action="vetselect3" method="get">
-          <c:forEach items="${vetselect_view}" var="dto">
-            <input type="radio" name="specialty_id" value="${dto.id}"> ${dto.name}
-          </c:forEach>
-        </td>
-        <td > <input type="submit" value="전공검색"> &nbsp;&nbsp; </td>
-      </tr>
-    </form>
-  </table>
 
-<!--         라디오버튼을 이용한 입력 -->
-<%-- 
-          <c:forEach items="${vetselect_view}" var="dto">
-            <input type="radio" name="specialty_id" value="${dto.id}"> ${dto.name}
-          </c:forEach>
---%>
+
+<p>verselect3 - Using sub SQL </p>
+   <form action="vetselect3" method="get">
+     <c:forEach items="${vetselect_view}" var="dto">
+       <input type="radio" name="specialty_id" value="${dto.id}"> ${dto.name}
+     </c:forEach>
+     <input type="submit" value="전공검색">
+   </form> 
+
 
 
 </body>
