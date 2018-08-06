@@ -9,7 +9,7 @@
 <body>
 
   <table width="600" cellpadding="0" cellspacing="0" border="1">
-    <form action="vet_add" method="post">
+    <form action="vet_add" method="get">
       <tr>
         <td width="70"> FirstName </td>
         <td> <input type="text" name="first_name" size = "50"> </td>

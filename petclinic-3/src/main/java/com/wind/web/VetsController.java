@@ -72,10 +72,25 @@ public class VetsController {
 	}
 
 	@RequestMapping("/vet_add")
-	public String vet_add(HttpServletRequest request, Model model) {
+	public String vet_add(HttpServletRequest request) {
 		VetsDao dao = sqlSession.getMapper(VetsDao.class);
-		
+		dao.vet_addDao(request.getParameter("first_name"), request.getParameter("last_name"));
 		return "redirect:vetslist";
+	}
+	
+	@RequestMapping("/vet_add_major")
+	public String vet_add_major(Model model) {
+		VetsDao dao1 = sqlSession.getMapper(VetsDao.class);
+		SpecialtiesDao dao2 = sqlSession.getMapper(SpecialtiesDao.class);
+		model.addAttribute("vetslist", dao1.vetslistDao());
+		model.addAttribute("specialtieslist", dao2.specialtieslistDao());
+		return "vet_add_major";
+	}
+	
+	@RequestMapping("/vet_add_major_mod")
+	public String vet_add_major_mod(HttpServletRequest request, Model model) {
+
+		return "vet_add_major_mod";
 	}
 	
 	@ExceptionHandler

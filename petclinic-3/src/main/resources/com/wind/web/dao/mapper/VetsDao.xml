@@ -6,7 +6,7 @@
 <mapper namespace="com.wind.web.dao.VetsDao">
 
   <select id="vetselectDao" resultType="com.wind.web.dto.VetspecialtiesDto">
-    SELECT vet_id FROM vet_specialties WHERE specialty_id = #{param1}
+    SELECT VET_ID FROM VET_SPECIALTIES WHERE SPECIALTY_ID = #{param1}
   </select>
   
   <select id="vetslistDao" resultType="com.wind.web.dto.VetsDto">
@@ -14,13 +14,13 @@
   </select>
  
   <select id="vetselect2Dao" resultType="com.wind.web.dto.VetsDto">
-    SELECT * FROM vets WHERE id = #{param1}
+    SELECT * FROM VETS WHERE id = #{param1}
   </select>
 
   <select id="vetselect3Dao" resultType="com.wind.web.dto.VetsDto">
-    SELECT * FROM vets WHERE ID IN (
-      SELECT vet_id FROM vet_specialties 
-      WHERE specialty_id = #{param1}
+    SELECT * FROM VETS WHERE ID IN (
+      SELECT VET_ID FROM VET_SPECIALTIES 
+      WHERE SPECIALTY_ID = #{param1}
     )
   </select>
   

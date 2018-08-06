@@ -8,4 +8,5 @@ import com.wind.web.dto.VetspecialtiesDto;
 
 public interface SpecialtiesDao {
 	public ArrayList<SpecialtiesDto> vetselect_viewDao();
+	public ArrayList<SpecialtiesDto> specialtieslistDao();
 }

@@ -27,6 +27,7 @@ vetslist.jsp
 <P><a href="${pageContext.request.contextPath}/vetslist">Pet-Clinic</a></P>
 <P></P>
 <LI><a href="${pageContext.request.contextPath}/vetselect_view">Pet-Clinic 수의사 전공별 열람</a>
+<LI><a href="${pageContext.request.contextPath}/vet_add_view">수의사 등록</a>
 
 
 </body>

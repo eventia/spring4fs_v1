@@ -40,7 +40,7 @@ public class HomeController {
 	public String writeForm() {
 		return "/write_view";
 	}
-	
+
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request, Model model) {
 		IDao dao = sqlSession.getMapper(IDao.class);
