@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wind.web.dao.IDao;
-import com.wind.web.dto.VetsDto;
+import com.wind.web.dao.SpecialtiesDao;
+import com.wind.web.dao.VetsDao;
 import com.wind.web.dto.VetspecialtiesDto;
 
 @Controller
@@ -22,14 +22,14 @@ public class VetsController {
 	
 	@RequestMapping("/vetslist")
 	public String vetslist(Model model) {
-		IDao dao = sqlSession.getMapper(IDao.class);
+		VetsDao dao = sqlSession.getMapper(VetsDao.class);
 		model.addAttribute("vetslist", dao.vetslistDao());
 		return "vetslist";
 	}
 	
 	@RequestMapping("/vetselect_view")
 	public String vetselect_view(HttpServletRequest request, Model model) { 
-		IDao dao = sqlSession.getMapper(IDao.class);
+		SpecialtiesDao dao = sqlSession.getMapper(SpecialtiesDao.class);
 		model.addAttribute("vetselect_view", dao.vetselect_viewDao());
 		return "vetselect_view"; 
 	}
@@ -37,7 +37,7 @@ public class VetsController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/vetselect")
 	public String vetselect(HttpServletRequest request, Model model) {
-		IDao dao = sqlSession.getMapper(IDao.class);
+		VetsDao dao = sqlSession.getMapper(VetsDao.class);
 		model.addAttribute("vetselect", dao.vetselectDao(Integer.parseInt(request.getParameter("specialty_id"))));
 		
 		ArrayList<VetspecialtiesDto> dto;
@@ -61,7 +61,7 @@ public class VetsController {
 	
 	@RequestMapping("/vetselect3")
 	public String vetselect3(HttpServletRequest request, Model model) {
-		IDao dao = sqlSession.getMapper(IDao.class);
+		VetsDao dao = sqlSession.getMapper(VetsDao.class);
 		model.addAttribute("vetselect3", dao.vetselect3Dao(Integer.parseInt(request.getParameter("specialty_id"))));
 		return "vetselect3";
 	}

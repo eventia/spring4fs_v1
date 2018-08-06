@@ -7,11 +7,11 @@ import com.wind.web.dto.VetsDto;
 import com.wind.web.dto.VetspecialtiesDto;
 
 public interface IDao {
-	public ArrayList<VetsDto> vetslistDao();
-	public ArrayList<SpecialtiesDto> vetselect_viewDao();
-	public ArrayList<VetspecialtiesDto> vetselectDao(int specialty_id);
-	public VetsDto vetselect2Dao(int id);
-	public ArrayList<VetsDto> vetselect3Dao(int id);
+//	public ArrayList<VetsDto> vetslistDao();
+//	public ArrayList<SpecialtiesDto> vetselect_viewDao();
+//	public ArrayList<VetspecialtiesDto> vetselectDao(int specialty_id);
+//	public VetsDto vetselect2Dao(int id);
+//	public ArrayList<VetsDto> vetselect3Dao(int id);
 
 	
 	public ArrayList<ContentDto> listDao();
