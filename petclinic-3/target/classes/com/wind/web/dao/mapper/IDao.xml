@@ -5,7 +5,7 @@
 
 <mapper namespace="com.wind.web.dao.IDao">
 
-
+<!-- 
   <select id="vetselect_viewDao" resultType="com.wind.web.dto.SpecialtiesDto">
     SELECT id, name FROM specialties ORDER BY id ASC
   </select>
@@ -26,6 +26,7 @@
   <select id="vetselect3Dao" resultType="com.wind.web.dto.VetsDto">
     SELECT * FROM vets WHERE ID IN (SELECT vet_id FROM vet_specialties WHERE specialty_id = #{param1})
   </select>
+-->
 
   <select id="listDao" resultType="com.wind.web.dto.ContentDto">
 		SELECT BID, BNAME, BTITLE, BCONTENT, BDATE, BHIT, BGROUP, BSTEP, BINDENT FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP ASC

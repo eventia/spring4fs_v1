@@ -9,16 +9,25 @@
 </head>
 <body>
 vetslist.jsp
-<table width="600" cellpadding="0" cellspacing="0" border="1">
 
+<table width="600" cellpadding="0" cellspacing="0" border="1">
+  <tr>
+    <td width=70>ID
+    <td>NAME</td>
+  </tr>
   <c:forEach items="${vetslist}" var="dto">
   <tr>
-    <td>
-    <td>${dto.id }</td>
+    <td width=70> ${dto.id }
+    <td> ${dto.first_name }, ${dto.last_name }</td>
   </tr>
   </c:forEach>
-   
 </table>
+
+<P><a href="${pageContext.request.contextPath}/list">FreeBoard</a></P>
+<P><a href="${pageContext.request.contextPath}/vetslist">Pet-Clinic</a></P>
+<P></P>
+<LI><a href="${pageContext.request.contextPath}/vetselect_view">Pet-Clinic 수의사 전공별 열람</a>
+
 
 </body>
 </html>

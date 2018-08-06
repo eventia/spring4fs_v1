@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wind.web.dao.SpecialtiesDao;
@@ -35,7 +36,6 @@ public class VetsController {
 		return "vetselect_view"; 
 	}
 	
-//	@SuppressWarnings("unchecked")
 	@RequestMapping("/vetselect")
 	public String vetselect(HttpServletRequest request, Model model) {
 		VetsDao dao = sqlSession.getMapper(VetsDao.class);
@@ -44,8 +44,6 @@ public class VetsController {
 		ArrayList<VetspecialtiesDto> dto;
 		dto = dao.vetselectDao(Integer.parseInt(request.getParameter("specialty_id")));
 
-//		@SuppressWarnings("rawtypes")
-//		ArrayList dto2 = new ArrayList<Integer>();
 		ArrayList<VetsDto> dto2 = new ArrayList<VetsDto>();
 		for(int i=0;i<dto.size();i++) {
 			dto2.add(dao.vetselect2Dao(dto.get(i).getVet_id()));
@@ -66,6 +64,23 @@ public class VetsController {
 		VetsDao dao = sqlSession.getMapper(VetsDao.class);
 		model.addAttribute("vetselect3", dao.vetselect3Dao(Integer.parseInt(request.getParameter("specialty_id"))));
 		return "vetselect3";
+	}
+	
+	@RequestMapping("/vet_add_view")
+	public String vet_add_view() {
+		return "vet_add_view";
+	}
+
+	@RequestMapping("/vet_add")
+	public String vet_add(HttpServletRequest request, Model model) {
+		VetsDao dao = sqlSession.getMapper(VetsDao.class);
+		
+		return "redirect:vetslist";
+	}
+	
+	@ExceptionHandler
+	public String handlerException(Exception e) {
+		return "viewerror";
 	}
 	
 	

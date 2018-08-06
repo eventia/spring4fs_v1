@@ -10,7 +10,7 @@
   </select>
   
   <select id="vetslistDao" resultType="com.wind.web.dto.VetsDto">
-    SELECT id FROM VETS ORDER BY FIRST_NAME ASC
+    SELECT * FROM VETS ORDER BY ID ASC
   </select>
  
   <select id="vetselect2Dao" resultType="com.wind.web.dto.VetsDto">
@@ -18,7 +18,16 @@
   </select>
 
   <select id="vetselect3Dao" resultType="com.wind.web.dto.VetsDto">
-    SELECT * FROM vets WHERE ID IN (SELECT vet_id FROM vet_specialties WHERE specialty_id = #{param1})
+    SELECT * FROM vets WHERE ID IN (
+      SELECT vet_id FROM vet_specialties 
+      WHERE specialty_id = #{param1}
+    )
   </select>
+  
+  <insert id="vet_addDao">
+    INSERT INTO VETS (ID , FIRST_NAME, LAST_NAME) 
+      VALUES (VETS_SEQ.NEXTVAL, #{param1}, #{param2} )
+  </insert>
+  
 
 </mapper>

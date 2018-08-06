@@ -18,7 +18,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return "redirect:list";
+		return "home";
 	}
 
 	@RequestMapping("/list")

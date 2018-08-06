@@ -12,6 +12,10 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+
+<P><a href="${pageContext.request.contextPath}/list">FreeBoard</a></P>
+<P><a href="${pageContext.request.contextPath}/vetslist">Pet-Clinic</a></P>
+
+
 </body>
 </html>
