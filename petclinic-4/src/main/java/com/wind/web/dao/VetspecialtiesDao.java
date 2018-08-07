@@ -6,6 +6,10 @@ import com.wind.web.dto.SpecialtiesDto;
 import com.wind.web.dto.VetsDto;
 import com.wind.web.dto.VetspecialtiesDto;
 
-public interface _VetspecialtiesDao {
-	public ArrayList<VetspecialtiesDto> vetselectDao(int specialty_id);
+public interface VetspecialtiesDao {
+	
+	public void vetspec_deleteDao(String id);
+	public void vetspec_addDao(String vet_id, String specialty_id);
+	public ArrayList<VetspecialtiesDto> vetspeslistDao();
+	
 }

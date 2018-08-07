@@ -8,17 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 vetslist.jsp
 
 <table width="600" cellpadding="0" cellspacing="0" border="1">
   <tr>
     <td width=70>ID
     <td>NAME</td>
+    <td width=300></td>
   </tr>
-  <c:forEach items="${vetslist}" var="dto">
+  <c:forEach items="${vetslist}" var="dto" varStatus="status">
   <tr>
     <td width=70> ${dto.id }
     <td> ${dto.first_name }, ${dto.last_name }</td>
+    <td></td>
   </tr>
   </c:forEach>
 </table>
@@ -28,6 +31,7 @@ vetslist.jsp
 <P></P>
 <LI><a href="${pageContext.request.contextPath}/vetselect_view">Pet-Clinic 수의사 전공별 열람</a>
 <LI><a href="${pageContext.request.contextPath}/vet_add_view">수의사 등록</a>
+<LI><a href="vet_add_major"> 의사 전공 정보 추가/수정 </a>
 
 
 </body>

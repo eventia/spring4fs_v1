@@ -10,8 +10,11 @@
   </select>
 
   <select id="specialtieslistDao" resultType="com.wind.web.dto.SpecialtiesDto">
-    SELECT * FROM specialties ORDER BY ID ASC
+    SELECT * FROM SPECIALTIES ORDER BY ID ASC
   </select>
   
+
+  
+
 
 </mapper>

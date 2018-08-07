@@ -29,5 +29,8 @@
       VALUES (VETS_SEQ.NEXTVAL, #{param1}, #{param2} )
   </insert>
   
+  <delete id="vet_deleteDao">
+    DELETE FROM VETS WHERE ID = #{param1}
+  </delete>
 
 </mapper>
