@@ -12,9 +12,5 @@
   <select id="specialtieslistDao" resultType="com.wind.web.dto.SpecialtiesDto">
     SELECT * FROM SPECIALTIES ORDER BY ID ASC
   </select>
-  
-
-  
-
 
 </mapper>

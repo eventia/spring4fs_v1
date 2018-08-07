@@ -17,8 +17,5 @@
   <select id="vetspeslistDao" resultType="com.wind.web.dto.VetspecialtiesDto">
     SELECT * FROM VET_SPECIALTIES ORDER BY VET_ID ASC, SPECIALTY_ID ASC
   </select>
-    
-  
-  
-  
+
 </mapper>
