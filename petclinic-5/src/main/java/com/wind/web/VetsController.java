@@ -118,6 +118,14 @@ public class VetsController {
 		return "redirect:vetslist";
 	}
 	
+	@RequestMapping("/vet_delete")
+	public String vet_delete(HttpServletRequest request) {
+		VetspecialtiesDao dao = sqlSession.getMapper(VetspecialtiesDao.class);
+		dao.vetspec_deleteDao(request.getParameter("id"));
+		return "redirect:vetslist";
+	}
+	
+	
 	public void del_vetspec(String vet_id) {
 		VetspecialtiesDao dao = sqlSession.getMapper(VetspecialtiesDao.class);
 		dao.vetspec_deleteDao(vet_id);
