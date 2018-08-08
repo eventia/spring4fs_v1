@@ -5,8 +5,13 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +27,10 @@ public class VetsController {
 
 	@Autowired
 	private SqlSession sqlSession;
+	
+	// 트랜잭션 처리
+	@Autowired
+	private DataSourceTransactionManager transactionManager;
 	
 	@RequestMapping("/vetslist")
 	public String vetslist(Model model) {
@@ -58,22 +67,15 @@ public class VetsController {
 	@RequestMapping("/vetselect")
 	public String vetselect(HttpServletRequest request, Model model) {
 		VetsDao dao = sqlSession.getMapper(VetsDao.class);
-	
 		ArrayList<VetspecialtiesDto> dto;
 		dto = dao.vetselectDao(Integer.parseInt(request.getParameter("specialty_id")));
 
 		ArrayList<VetsDto> dto2 = new ArrayList<VetsDto>();
 		for(int i=0;i<dto.size();i++) {
 			dto2.add(dao.vetselect2Dao(dto.get(i).getVet_id()));
-			System.out.println(dto.get(i).getVet_id());
-			System.out.println("vets_id = "+dao.vetselect2Dao(dto.get(i).getVet_id()));
 		}
 		model.addAttribute("vetselect2", dto2);
 		
-		System.out.println("size = " + dto.get(0).getVet_id());		
-		System.out.println("size = " + dto.get(1).getVet_id());		
-		System.out.println(dto.getClass());
-		System.out.println(dto.size());
 		return "vetselect";
 	}
 	
@@ -106,15 +108,29 @@ public class VetsController {
 	}
 	
 	@RequestMapping("/vet_add_major_mod")
-	public String vet_add_major_mod(HttpServletRequest request, Model model) {
+	public String vet_add_major_mod(HttpServletRequest request, Model model) throws Exception {
 		String vet_id = request.getParameter("vet_id");
 		String[] major = request.getParameterValues("major");
-		del_vetspec(vet_id);
+		
+		// Spring Transaction - Reference Ch.10.6
+		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+//		def.setName("exam-tran");
+//		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+		
+		TransactionStatus status = transactionManager.getTransaction(def);
 
-		for(int i=0;i<major.length;i++)  {
-			add_vetspec(vet_id, major[i]);
+		try {
+			del_vetspec(vet_id);
+			for(int i=0;i<major.length;i++)  {
+				add_vetspec(vet_id, major[i]);
+			}
+			
+		transactionManager.commit(status);
+
+		} catch (Exception e) {
+			transactionManager.rollback(status);
+			e.printStackTrace();
 		}
-
 		return "redirect:vetslist";
 	}
 	

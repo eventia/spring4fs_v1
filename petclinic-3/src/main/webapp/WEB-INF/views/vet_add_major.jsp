@@ -13,31 +13,24 @@
 
 <form action="vet_add_major_mod" method="get">
   
-    <select name="vet_id" >  
-      <c:forEach items="${vetslist}" var="dto">
-        <option value="${dto.id}"> ${dto.first_name}, ${dto.last_name} </option>
-      </c:forEach>
-    </select>
+   <select name="vet_id" >  
+     <c:forEach items="${vetslist}" var="dto">
+       <option value="${dto.id}"> ${dto.first_name}, ${dto.last_name} </option>
+     </c:forEach>
+   </select>
 
-
-
-  
-
-<fieldset>
-  <legend>Choose your interests</legend>
-
-	  <div>
-	  
-      <c:forEach items="${specialtieslist}" var="dto" varStatus="status" >
-        <input type="checkbox" id="major" name="major" value="${dto.id}" unchecked>
-        <label for="specialty_id">${dto.name}</label>
-      </c:forEach>
-
-	  </div>
-	  <div>
-	    <button type="submit">Subscribe</button>
-	  </div>
-</fieldset>
+	<fieldset>
+	  <legend>Choose your interests</legend>
+		  <div>
+	      <c:forEach items="${specialtieslist}" var="dto" varStatus="status" >
+	        <input type="checkbox" id="major" name="major" value="${dto.id}" unchecked>
+	        <label for="specialty_id">${dto.name}</label>
+	      </c:forEach>
+		  </div>
+		  <div>
+		    <button type="submit">Subscribe</button>
+		  </div>
+	</fieldset>
 </form>
 
 </body>
