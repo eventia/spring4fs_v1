@@ -119,11 +119,11 @@
 			<version>2.2.2</version>
 		</dependency>
 		
-		<!-- JDBC -->
+		<!-- JDBC 4.1.4.RELEASE -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		
 		<!-- Test -->
