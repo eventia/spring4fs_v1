@@ -1,3 +1,5 @@
+Pet-Clinic 스프링 소스 
+
 로그인 & spring security
 
 1. pom.xml 수정 (spring-security 모듈 추가)
@@ -9,4 +11,9 @@
 6. DB TABLE 생성
 7. security-xml 수정
 8. dataSource 를 security-xml 안으로 옮김 (실행순서)
-9. 
+
+이후 작업
+
+1. PET 관련 DB 와  CRUD 용 DAO/DTO/Mapper 등록
+2. 기본명령 수행 알고리즘 분석 및 구현
+

@@ -23,7 +23,8 @@
 	PW : <input type="text" name="j_password"> 
 	<input type="submit" value="LOGIN"> <br />
 </form>
-<P></P>
+<P></P> 
+
 <P> <a href="${pageContext.request.contextPath}/login.html">유저로그인</a> , 
     <a href="${pageContext.request.contextPath}/welcome.html">관리자로그인</a></P>
 <P> <a href="${pageContext.request.contextPath}/notice/home">공지사항</a>
