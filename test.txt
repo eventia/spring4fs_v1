@@ -5,3 +5,5 @@ echo [PROCESSING...] git commit -m "[Basic] Spring Tutorial %date%"
 echo [PROCESSING...] git commit -m %*
 )
 echo [PROCESSING...] git push 
+
+Test File >> bat File
